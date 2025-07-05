@@ -111,7 +111,7 @@ export default function ProjectsPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            My <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Projects</span>
+            <span className="text-[#23235b]">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A collection of projects showcasing my work in AI, data science, and full-stack development

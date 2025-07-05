@@ -8,12 +8,11 @@ import { Menu, X, Sun, Moon, Monitor, Sparkles, Code2, Database, Brain, Cloud } 
 import { motion, AnimatePresence } from "framer-motion"
 
 const navigation = [
-  { name: "Home", href: "/", icon: null },
-  { name: "About", href: "/about", icon: null },
-  { name: "Projects", href: "/projects", icon: Code2 },
-  { name: "Blog", href: "/blog", icon: Database },
-  { name: "Resume", href: "/resume", icon: null },
-  { name: "Contact", href: "/contact", icon: null },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Blog", href: "/blog" },
+  { name: "Resume", href: "/resume" },
+  { name: "Contact", href: "/contact" },
 ]
 
 const skillIcons = [Brain, Cloud, Database, Code2]
@@ -58,7 +57,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8" aria-label="Global">
         {/* Brand with enhanced animation */}
         <motion.div 
-          className="flex lg:flex-1"
+          className="flex items-center"
           whileHover={{ scale: 1.05 }}
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
@@ -122,77 +121,38 @@ export function Header() {
           </motion.button>
         </div>
         
-        {/* Desktop navigation */}
-        <div className="hidden lg:flex lg:gap-x-1">
-          {navigation.map((item, index) => {
-            const isActive = pathname === item.href
-            const Icon = item.icon
-            
-            return (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Link
-                  href={item.href}
-                  className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
-                    isActive 
-                      ? 'text-primary bg-primary/10' 
-                      : 'text-foreground hover:text-primary hover:bg-muted/50'
-                  }`}
+        {/* Navigation + Theme toggle group aligné à droite */}
+        <div className="hidden lg:flex items-center gap-x-8">
+          {/* Navigation links */}
+          <div className="flex items-center gap-x-8">
+            {navigation.map((item, index) => {
+              const isActive = pathname === item.href
+              return (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: 0 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.07 }}
+                  whileHover={{ scale: 1.08 }}
                 >
-                  <motion.div
-                    className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    whileHover={{ scale: 1.05 }}
-                  />
-                  
-                  <div className="relative z-10 flex items-center gap-2">
-                    {Icon && <Icon className="w-4 h-4" />}
-                    {item.name}
-                  </div>
-                  
-                  {isActive && (
-                    <motion.span
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-1/2 w-1 h-1 bg-primary rounded-full transform -translate-x-1/2"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  <Link
+                    href={item.href}
+                    className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
+                      isActive 
+                        ? 'text-primary bg-primary/10' 
+                        : 'text-foreground hover:text-primary'
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    <span
+                      className={`absolute left-0 bottom-1 h-0.5 w-0 bg-primary rounded transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}`}
                     />
-                  )}
-                </Link>
-              </motion.div>
-            )
-          })}
-        </div>
-        
-        {/* Right side actions */}
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
-          {/* Floating skill indicators */}
-          <div className="flex items-center gap-2 mr-4">
-            {skillIcons.map((Icon, index) => (
-              <motion.div
-                key={index}
-                className="w-6 h-6 rounded-full bg-muted/30 flex items-center justify-center"
-                whileHover={{ scale: 1.2, backgroundColor: "hsl(var(--primary) / 0.1)" }}
-                animate={{ 
-                  y: [0, -2, 0],
-                  opacity: [0.6, 1, 0.6]
-                }}
-                transition={{ 
-                  duration: 2,
-                  delay: index * 0.2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Icon className="w-3 h-3 text-muted-foreground" />
-              </motion.div>
-            ))}
+                  </Link>
+                </motion.div>
+              )
+            })}
           </div>
-
-          {/* Enhanced theme toggle */}
+          {/* Theme toggle */}
           {mounted && (
             <motion.button
               whileHover={{ scale: 1.1 }}
@@ -279,8 +239,6 @@ export function Header() {
               <div className="space-y-2">
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href
-                  const Icon = item.icon
-                  
                   return (
                     <motion.div
                       key={item.name}
@@ -297,7 +255,6 @@ export function Header() {
                         }`}
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {Icon && <Icon className="w-5 h-5" />}
                         {item.name}
                         {isActive && (
                           <motion.div

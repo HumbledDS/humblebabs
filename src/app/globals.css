@@ -107,21 +107,10 @@
 
   /* Gradient text animation */
   .gradient-text {
-    background: linear-gradient(to right, hsl(var(--primary)), #9333ea, #2563eb);
+    background: linear-gradient(90deg, #23235b, #23235b); /* Bleu nuit profond, indigo */
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
-    background-size: 200% 200%;
-    animation: gradient-shift 3s ease infinite;
-  }
-
-  @keyframes gradient-shift {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
   }
 
   /* Floating animation */

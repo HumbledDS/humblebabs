@@ -88,7 +88,7 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Get In <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Touch</span>
+            Get In <span className="text-[#23235b]">Touch</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Have a project in mind? Let's discuss how we can bring your ideas to life

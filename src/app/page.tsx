@@ -127,7 +127,7 @@ export default function Home() {
             >
               <span className="block">Hi, I'm</span>
               <motion.span 
-                className="block bg-gradient-to-r from-primary via-purple-600 to-blue-600 bg-clip-text text-transparent relative"
+                className="block text-[#23235b] relative"
                 animate={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
@@ -175,7 +175,7 @@ export default function Home() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/projects"
-                className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="group inline-flex items-center gap-3 px-8 py-4 bg-[#23235b] text-white rounded-xl hover:bg-[#23235b]/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Play className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 View My Work
@@ -216,7 +216,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Technical <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Expertise</span>
+              Technical <span className="text-[#23235b]">Expertise</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Combining cutting-edge technologies with practical experience to solve complex problems
@@ -284,7 +284,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Featured <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Projects</span>
+              Featured <span className="text-[#23235b]">Projects</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A showcase of my latest work in AI, Data Science, and Cloud Computing
@@ -405,7 +405,7 @@ export default function Home() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold">
-              Let's Build Something <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Amazing</span>
+              Let's Build Something <span className="text-[#23235b]">Amazing</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Have a project in mind? Let's discuss how we can bring your data-driven ideas to life.
@@ -416,7 +416,7 @@ export default function Home() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl hover:from-primary/90 hover:to-purple-600/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-[#23235b] text-white rounded-xl hover:bg-[#23235b]/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
               >
                 <Sparkles className="w-5 h-5" />
                 Get In Touch

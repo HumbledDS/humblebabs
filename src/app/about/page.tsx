@@ -65,7 +65,7 @@ export default function AboutPage() {
             className="text-center mb-16"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              About <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">Me</span>
+              About <span className="text-[#23235b]">Me</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Passionate data scientist and AI engineer with a love for turning complex problems into elegant solutions
