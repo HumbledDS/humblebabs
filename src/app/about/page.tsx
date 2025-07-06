@@ -91,10 +91,10 @@ export default function AboutPage() {
             className="text-center mb-8"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              About <span className="text-[#23235b]">Me</span>
+              Babacar <span className="text-[#23235b]">GUEYE</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Passionate data scientist and AI engineer with a love for turning complex problems into elegant solutions
+              Passionate Data & AI Engineer with a deep eager to be fully expert on Cloud, AI and automatisation.
             </p>
             <Link
               href="/resume.pdf"
@@ -114,27 +114,27 @@ export default function AboutPage() {
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h2 className="text-3xl font-bold mb-4">HumbleBabs</h2>
-                <p className="text-xl text-primary font-medium mb-6">Senior Data Scientist & AI Engineer</p>
+                <h2 className="text-3xl font-bold mb-4">Babacar</h2>
+                <p className="text-xl text-primary font-medium mb-6"> Data Engineer</p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Passionate about transforming data into actionable insights and building intelligent systems. 
-                  Experienced in machine learning, cloud computing, and full-stack development.
+                  Competent about data acquisition, storage and transforming it into valuable information. Committed into building and maintaining intelligent systems. 
+                  Experienced in data science, cloud computing, and full-stack development.
                 </p>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-primary" />
                   <a href="mailto:hello@humblebabs.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                    hello@humblebabs.com
+                    contact@humblebabs.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground">+1 (555) 123-4567</span>
+                  <span className="text-muted-foreground">+33 6 79 81 97 72</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin className="w-5 h-5 text-primary" />
-                  <span className="text-muted-foreground">San Francisco, CA</span>
+                  <span className="text-muted-foreground">Region Parisienne, France</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Globe className="w-5 h-5 text-primary" />
@@ -144,14 +144,14 @@ export default function AboutPage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <Linkedin className="w-5 h-5 text-primary" />
-                  <a href="https://linkedin.com/in/humblebabs" className="text-muted-foreground hover:text-foreground transition-colors">
-                    linkedin.com/in/humblebabs
+                  <a href="https://linkedin.com/in/babacargueye1/" className="text-muted-foreground hover:text-foreground transition-colors">
+                    linkedin.com/in/babacargueye1/
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Github className="w-5 h-5 text-primary" />
-                  <a href="https://github.com/humblebabs" className="text-muted-foreground hover:text-foreground transition-colors">
-                    github.com/humblebabs
+                  <a href="https://github.com/humbledds" className="text-muted-foreground hover:text-foreground transition-colors">
+                    github.com/humbledds
                   </a>
                 </div>
               </div>

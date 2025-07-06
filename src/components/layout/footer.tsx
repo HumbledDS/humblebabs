@@ -69,8 +69,8 @@ export function Footer() {
               </motion.div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-              Full-stack developer passionate about building innovative experiences. 
-              Specializing in AI, Cloud Computing, and Data Science solutions.
+              Data Engineer & Full-stack developer passionate about building innovative experiences. 
+              Specializing in Data Engineering, Cloud Computing, AI and Data Science solutions.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((item, index) => (
@@ -146,8 +146,8 @@ export function Footer() {
                 className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 <Mail className="w-4 h-4" />
-                <a href="mailto:hello@humblebabs.com" className="text-sm">
-                  hello@humblebabs.com
+                <a href="mailto:contact@humblebabs.com" className="text-sm">
+                  contact@humblebabs.com
                 </a>
               </motion.div>
               <motion.div
@@ -174,7 +174,7 @@ export function Footer() {
               className="text-sm text-muted-foreground text-center md:text-left"
               whileHover={{ scale: 1.02 }}
             >
-              &copy; {new Date().getFullYear()} HumbleBabs. All rights reserved.
+              &copy; {new Date().getFullYear()} Babacar G. All rights reserved.
             </motion.p>
             <motion.div 
               className="flex items-center gap-2 text-sm text-muted-foreground"

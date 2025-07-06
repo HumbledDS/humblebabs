@@ -90,9 +90,9 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative max-w-5xl mx-auto text-center space-y-8">
+        <div className="relative max-w-5xl mx-auto text-left space-y-8">
           <motion.div 
-            className="space-y-6"
+            className="space-y-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -125,9 +125,9 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span className="block">Hi, I'm</span>
+              <span>Hi, I'm </span>
               <motion.span 
-                className="block text-[#23235b] relative"
+                className="text-[#23235b] relative"
                 animate={{ 
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
@@ -137,13 +137,12 @@ export default function Home() {
                 }}
                 style={{ backgroundSize: "200% 200%" }}
               >
-                HumbleBabs
+                Babacar.
                 <motion.span
                   className="absolute -top-2 -right-2 text-2xl"
                   animate={{ rotate: [0, 20, -20, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                >
-                  ✨
+                >  ✨
                 </motion.span>
               </motion.span>
             </motion.h1>
@@ -152,16 +151,16 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-4"
+              className="space-y-6"
             >
               <p className="text-xl md:text-3xl text-muted-foreground font-medium">
-                Data Scientist & AI Engineer
+                Data & AI Engineer
               </p>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
                 Passionate about transforming data into actionable insights and building intelligent systems. 
-                I specialize in <span className="text-primary font-semibold">Machine Learning</span>, 
+                I specialize in <span className="text-primary font-semibold">Data Engineering</span>, 
                 <span className="text-purple-600 font-semibold"> Cloud Computing</span>, and 
-                <span className="text-blue-600 font-semibold"> Data Engineering</span>.
+                <span className="text-blue-600 font-semibold"> Machine Learning</span>.
               </p>
             </motion.div>
           </motion.div>
