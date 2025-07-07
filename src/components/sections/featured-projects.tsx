@@ -4,38 +4,11 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
-
-const featuredProjects = [
-  {
-    title: "AI-Powered Analytics Dashboard",
-    description: "A comprehensive analytics platform that uses machine learning to provide insights and predictions for business metrics.",
-    image: "/images/project-1.jpg",
-    technologies: ["React", "Python", "TensorFlow", "AWS"],
-    github: "https://github.com/humblebabs/ai-analytics",
-    live: "https://ai-analytics.humblebabs.com",
-    category: "AI/ML",
-  },
-  {
-    title: "Cloud-Native E-commerce Platform",
-    description: "Scalable e-commerce solution built with microservices architecture and deployed on Kubernetes.",
-    image: "/images/project-2.jpg",
-    technologies: ["Next.js", "Node.js", "Docker", "Kubernetes"],
-    github: "https://github.com/humblebabs/cloud-ecommerce",
-    live: "https://ecommerce.humblebabs.com",
-    category: "Cloud",
-  },
-  {
-    title: "Real-time Data Pipeline",
-    description: "End-to-end data pipeline for processing real-time streaming data with Apache Kafka and Apache Spark.",
-    image: "/images/project-3.jpg",
-    technologies: ["Apache Kafka", "Apache Spark", "Python", "PostgreSQL"],
-    github: "https://github.com/humblebabs/data-pipeline",
-    live: "https://pipeline.humblebabs.com",
-    category: "Data",
-  },
-]
+import { getFeaturedProjects } from "@/app/projects/page"
 
 export function FeaturedProjects() {
+  const featuredProjects = getFeaturedProjects()
+
   return (
     <section className="py-20 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -64,7 +37,7 @@ export function FeaturedProjects() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
             <motion.article
-              key={project.title}
+              key={project.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -72,29 +45,61 @@ export function FeaturedProjects() {
               className="flex flex-col items-start"
             >
               <div className="relative w-full">
-                <div className="aspect-[16/9] w-full rounded-2xl bg-muted overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center">
-                    <span className="text-muted-foreground font-medium">
-                      Project Image
-                    </span>
-                  </div>
+                <div className="aspect-[16/9] w-full rounded-2xl bg-muted overflow-hidden relative">
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-purple-600/20 flex items-center justify-center">
+                      <span className="text-muted-foreground font-medium">
+                        Project Image
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center rounded-full bg-primary/10 px-2 py-1 text-xs font-medium text-primary ring-1 ring-inset ring-primary/20">
                     {project.category}
                   </span>
                 </div>
+                {project.featured && (
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-flex items-center rounded-full bg-purple-500/10 px-2 py-1 text-xs font-medium text-purple-600 ring-1 ring-inset ring-purple-500/20">
+                      Featured
+                    </span>
+                  </div>
+                )}
               </div>
               
               <div className="max-w-xl">
                 <div className="mt-8 flex items-center gap-x-4 text-xs">
-                  <time dateTime="2024" className="text-muted-foreground">
-                    2024
+                  <time dateTime={project.date} className="text-muted-foreground">
+                    {project.date}
                   </time>
+                  <span className="text-muted-foreground">•</span>
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                    project.status === 'Live' ? 'bg-green-500/20 text-green-600' :
+                    project.status === 'Beta' ? 'bg-yellow-500/20 text-yellow-600' :
+                    'bg-blue-500/20 text-blue-600'
+                  }`}>
+                    {project.status}
+                  </span>
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-foreground group-hover:text-primary transition-colors">
-                    <Link href={project.live}>
+                    <Link href={
+                      project.title === "AI-Powered Analytics Dashboard" ? "/projects/ai-powered-analytics-dashboard" :
+                      project.title === "Cloud ML Pipeline" ? "/projects/cloud-ml-pipeline" :
+                      project.title === "Data Visualization Suite" ? "/projects/data-visualization-suite" :
+                      project.title === "Computer Vision Analytics" ? "/projects/computer-vision-analytics" :
+                      project.title === "Financial Data Analysis Platform" ? "/projects/financial-data-analysis" :
+                      project.title === "LLM RAG Implementation" ? "/projects/llm-rag-implementation" :
+                      (project.demoUrl || project.githubUrl)
+                    }>
                       <span className="absolute inset-0" />
                       {project.title}
                     </Link>
@@ -105,7 +110,7 @@ export function FeaturedProjects() {
                 </div>
                 
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
+                  {project.technologies.slice(0, 4).map((tech) => (
                     <span
                       key={tech}
                       className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground ring-1 ring-inset ring-border"
@@ -113,25 +118,32 @@ export function FeaturedProjects() {
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 4 && (
+                    <span className="inline-flex items-center rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground ring-1 ring-inset ring-border">
+                      +{project.technologies.length - 4}
+                    </span>
+                  )}
                 </div>
                 
                 <div className="mt-6 flex gap-x-4">
                   <Link
-                    href={project.github}
+                    href={project.githubUrl}
                     className="text-muted-foreground hover:text-foreground transition-colors"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     <Github className="h-5 w-5" />
                   </Link>
-                  <Link
-                    href={project.live}
-                    className="text-muted-foreground hover:text-foreground transition-colors"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink className="h-5 w-5" />
-                  </Link>
+                  {project.demoUrl && (
+                    <Link
+                      href={project.demoUrl}
+                      className="text-muted-foreground hover:text-foreground transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="h-5 w-5" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.article>

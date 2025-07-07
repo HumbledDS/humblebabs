@@ -5,77 +5,99 @@ import { Download, Mail, Phone, MapPin, Linkedin, Github, Globe, Calendar, Brief
 import Link from "next/link"
 
 const resumeSkills = {
-  "Programming Languages": ["Python", "JavaScript", "TypeScript", "R", "SQL", "Java", "C++"],
-  "Machine Learning": ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV", "NLTK", "SpaCy"],
-  "Cloud & DevOps": ["AWS", "Azure", "GCP", "Docker", "Kubernetes", "Terraform", "Jenkins"],
-  "Data & Analytics": ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Tableau", "Power BI", "Apache Spark"],
-  "Web Development": ["React", "Next.js", "Node.js", "Vue.js", "PostgreSQL", "MongoDB", "Redis"],
-  "Tools & Platforms": ["Git", "Jupyter", "MLflow", "Airflow", "Kafka", "Elasticsearch", "Grafana"]
+  "Data Engineering": ["Apache Kafka", "Hadoop", "Spark", "Airflow", "AWS Glue", "Databricks"],
+  "ETL & Data Pipeline": ["Python (Pandas, PySpark)", "SQL", "Airflow", "Talend"],
+  "Cloud & DevOps": ["AWS (S3, EC2, Lambda)", "GCP", "Docker", "Kubernetes", "Terraform", "Ansible"],
+  "Big Data Tools": ["Apache Hadoop", "Hive", "Spark", "HDFS"],
+  "Database Management": ["SQL/NoSQL", "PostgreSQL", "MongoDB", "Cassandra"],
+  "Data Analytics & Modeling": ["Dimensional Modeling", "OLAP", "Data Warehousing"],
+  "Version Control & CI/CD": ["Git", "Jenkins", "GitLab CI"],
+  "Project Management": ["Agile/Scrum", "Jira", "Trello", "Slack"]
 }
 
 const resumeExperience = [
   {
-    title: "Senior Data Scientist",
-    company: "TechCorp Solutions",
-    location: "San Francisco, CA",
-    period: "2022 - Present",
+    title: "Freelance Web & AI Developer",
+    company: "Raktiak Studio (link)",
+    companyUrl: "https://raktiak-studio.com",
+    location: "France",
+    period: "09/2024 - 03/2025",
     achievements: [
-      "Led development of ML-powered analytics platform serving 10M+ users",
-      "Reduced model training time by 60% through optimization of ML pipelines",
-      "Implemented A/B testing framework resulting in 25% improvement in user engagement",
-      "Mentored 5 junior data scientists and conducted technical interviews"
+      "Developed custom web applications using modern frameworks and Python backend technologies",
+      "Implemented AI solutions and machine learning models for client projects",
+      "Built scalable web services and APIs for various business requirements",
+      "Provided technical consulting and development services to multiple clients"
     ]
   },
   {
-    title: "AI Engineer",
-    company: "InnovateAI",
-    location: "Seattle, WA",
-    period: "2020 - 2022",
+    title: "Data Engineer & Backend Developer",
+    company: "TrouveTout (Startup)",
+    location: "France",
+    period: "07/2023 - 05/2024",
     achievements: [
-      "Built scalable ML pipeline processing 1TB+ daily data volume",
-      "Deployed 15+ production models with 99.9% uptime",
-      "Developed real-time recommendation engine improving conversion by 30%",
-      "Collaborated with cross-functional teams to integrate AI solutions"
+      "Developed ETL processes using Python and Airflow for marketplace data processing",
+      "Built scalable backend with Django for data ingestion, transformation, and storage",
+      "Implemented automated CI/CD pipelines with Docker, Jenkins, and GitLab, reducing deployment time by 30%",
+      "Created data quality monitoring and anomaly detection systems to ensure data integrity"
     ]
   },
   {
-    title: "Data Analyst",
-    company: "DataFlow Inc",
-    location: "Austin, TX",
-    period: "2018 - 2020",
+    title: "Data Science/Engineer Intern",
+    company: "Orange (Telecom Sector)",
+    location: "France",
+    period: "11/2022 - 05/2023",
     achievements: [
-      "Created interactive dashboards used by 500+ stakeholders",
-      "Automated reporting processes saving 20 hours/week",
-      "Conducted statistical analysis leading to $2M cost savings",
-      "Presented findings to C-level executives and board members"
+      "Developed data lake architecture using Hadoop and Spark to handle over 200 TB of telecom data",
+      "Deployed Kafka for real-time streaming of customer data, enabling better churn analysis",
+      "Assisted in migrating on-premises data infrastructure to AWS, utilizing S3, Glue, and Redshift",
+      "Supported data science team by providing scalable data pipelines for churn prediction using Apache Spark"
+    ]
+  },
+  {
+    title: "Data Analyst Intern",
+    company: "Laboratoire de Mathématiques Nicolas ORESME",
+    location: "France",
+    period: "03/2021 - 07/2021",
+    achievements: [
+      "Optimized data pipelines for research projects, reducing processing time by 20%",
+      "Developed interactive dashboards with SAS Visual Analytics for better variable relationship understanding",
+      "Conducted statistical analysis and data transformation for research initiatives"
     ]
   }
 ]
 
 const resumeEducation = [
   {
-    degree: "Master of Science in Data Science",
-    school: "Stanford University",
-    location: "Stanford, CA",
-    period: "2016 - 2018",
-    gpa: "3.9/4.0",
-    relevant: ["Machine Learning", "Statistical Analysis", "Big Data Processing", "Data Visualization"]
+    degree: "DU Big Data, Data Science et Analyse des risques",
+    school: "Université de Montpellier",
+    location: "Montpellier, France",
+    period: "10/2023 - 09/2024",
+    gpa: "",
+    relevant: ["Big Data", "Data Science", "Risk Analysis", "Statistical Modeling"]
   },
   {
-    degree: "Bachelor of Science in Computer Science",
-    school: "Massachusetts Institute of Technology",
-    location: "Cambridge, MA",
-    period: "2012 - 2016",
-    gpa: "3.8/4.0",
-    relevant: ["Algorithms", "Software Engineering", "Database Systems", "Artificial Intelligence"]
+    degree: "Master 2 Statistiques Appliquées et Analyse Décisionnelle",
+    school: "Université de Caen",
+    location: "Caen, France",
+    period: "09/2021 - 09/2023",
+    gpa: "",
+    relevant: ["Applied Statistics", "Decision Analysis", "Statistical Modeling", "Data Analysis"]
+  },
+  {
+    degree: "Licence 3 Mathématiques Appliquées et Licence 3 Informatique",
+    school: "Université de Caen",
+    location: "Caen, France",
+    period: "09/2019 - 09/2021",
+    gpa: "",
+    relevant: ["Applied Mathematics", "Computer Science", "Algorithms", "Programming"]
   }
 ]
 
 const certifications = [
   { name: "AWS Certified Solutions Architect", issuer: "Amazon Web Services", year: "2023" },
-  { name: "Google Cloud Professional Data Engineer", issuer: "Google Cloud", year: "2022" },
-  { name: "Certified Kubernetes Administrator", issuer: "Cloud Native Computing Foundation", year: "2021" },
-  { name: "TensorFlow Developer Certificate", issuer: "Google", year: "2020" }
+  { name: "Apache Spark Developer Certification", issuer: "Databricks", year: "2023" },
+  { name: "Docker Certified Associate", issuer: "Docker Inc", year: "2022" },
+  { name: "Kubernetes Administrator", issuer: "Cloud Native Computing Foundation", year: "2022" }
 ]
 
 export default function AboutPage() {
@@ -97,7 +119,7 @@ export default function AboutPage() {
               Passionate Data & AI Engineer with a deep eager to be fully expert on Cloud, AI and automatisation.
             </p>
             <Link
-              href="/resume.pdf"
+              href="/CV_Babacar_DataEngineer.pdf"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#23235b] text-white rounded-xl hover:bg-[#23235b]/90 transition-colors font-medium mt-8"
             >
               <Download className="w-5 h-5" />
@@ -168,11 +190,11 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold mb-4">Professional Summary</h2>
             <div className="bg-card rounded-xl border border-border p-6">
               <p className="text-muted-foreground leading-relaxed">
-                Results-driven data scientist and AI engineer with 6+ years of experience in developing 
-                machine learning solutions and data-driven applications. Proven track record of leading 
-                cross-functional teams, optimizing ML pipelines, and delivering impactful insights that 
-                drive business growth. Expertise in Python, TensorFlow, AWS, and full-stack development. 
-                Passionate about staying current with emerging technologies and contributing to open-source projects.
+                Results-driven Data Engineer with 3+ years of experience in developing data pipelines and 
+                data-driven applications. Proven track record of building scalable ETL processes, optimizing 
+                data infrastructure, and delivering impactful insights that drive business growth. Expertise 
+                in Python, Apache Spark, AWS, and data engineering technologies. Motivated to staying 
+                current with emerging technologies and contributing to open-source projects.
               </p>
             </div>
           </motion.div>
@@ -191,7 +213,18 @@ export default function AboutPage() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                     <div>
                       <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
-                      <p className="text-primary font-medium">{exp.company}</p>
+                      {exp.companyUrl ? (
+                        <a 
+                          href={exp.companyUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-primary font-medium hover:text-primary/80 transition-colors"
+                        >
+                          {exp.company}
+                        </a>
+                      ) : (
+                        <p className="text-primary font-medium">{exp.company}</p>
+                      )}
                     </div>
                     <div className="text-right">
                       <p className="text-muted-foreground">{exp.period}</p>

@@ -230,7 +230,15 @@ export default function BlogPage() {
                     </div>
 
                     <Link
-                      href={post.slug === "building-scalable-ml-pipelines" ? "/blog/building-scalable-ml-pipelines" : `/blog/${post.slug}`}
+                      href={
+                        post.slug === "building-scalable-ml-pipelines" ? "/blog/building-scalable-ml-pipelines" :
+                        post.slug === "ai-healthcare-future" ? "/blog/ai-healthcare-future" :
+                        post.slug === "optimizing-react-performance" ? "/blog/optimizing-react-performance" :
+                        post.slug === "d3-js-visualization-best-practices" ? "/blog/d3-js-visualization-best-practices" :
+                        post.slug === "deploying-ml-models-aws" ? "/blog/deploying-ml-models-aws" :
+                        post.slug === "transformer-architecture-nlp" ? "/blog/transformer-architecture-nlp" :
+                        `/blog/${post.slug}`
+                      }
                       className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
                     >
                       Read More
@@ -295,7 +303,15 @@ export default function BlogPage() {
                         {post.readTime}
                       </div>
                       <Link
-                        href={`/blog/${post.slug}`}
+                        href={
+                          post.slug === "building-scalable-ml-pipelines" ? "/blog/building-scalable-ml-pipelines" :
+                          post.slug === "ai-healthcare-future" ? "/blog/ai-healthcare-future" :
+                          post.slug === "optimizing-react-performance" ? "/blog/optimizing-react-performance" :
+                          post.slug === "d3-js-visualization-best-practices" ? "/blog/d3-js-visualization-best-practices" :
+                          post.slug === "deploying-ml-models-aws" ? "/blog/deploying-ml-models-aws" :
+                          post.slug === "transformer-architecture-nlp" ? "/blog/transformer-architecture-nlp" :
+                          `/blog/${post.slug}`
+                        }
                         className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
                       >
                         Read

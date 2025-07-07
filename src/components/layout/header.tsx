@@ -6,6 +6,7 @@ import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Menu, X, Sun, Moon, Monitor, Sparkles, Code2, Database, Brain, Cloud } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { usePageTransition } from "@/hooks/use-navigation-loading"
 
 const navigation = [
   { name: "About", href: "/about" },
@@ -22,6 +23,7 @@ export function Header() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const { startTransition } = usePageTransition()
 
   useEffect(() => {
     setMounted(true)
@@ -136,6 +138,7 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
+                    onClick={() => startTransition(`Loading ${item.name}...`)}
                     className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 group ${
                       isActive 
                         ? 'text-primary bg-primary/10' 
@@ -252,7 +255,10 @@ export function Header() {
                             ? 'bg-primary/10 text-primary border border-primary/20'
                             : 'text-foreground hover:bg-muted/50 hover:text-primary'
                         }`}
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={() => {
+                          setMobileMenuOpen(false)
+                          startTransition(`Loading ${item.name}...`)
+                        }}
                       >
                         {item.name}
                         {isActive && (

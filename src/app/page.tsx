@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowRight, Code, Database, Cloud, Brain, Sparkles, Download, ExternalLink, Github, Play } from "lucide-react"
 import { motion } from "framer-motion"
+import { getFeaturedProjects } from "./projects/page"
 
 const skills = [
   {
@@ -39,35 +41,8 @@ const skills = [
   },
 ]
 
-const featuredProjects = [
-  {
-    title: "AI-Powered Analytics Dashboard",
-    description: "Real-time analytics platform with machine learning predictions and interactive visualizations.",
-    image: "/images/projects/analytics-dashboard.jpg",
-    technologies: ["React", "Python", "TensorFlow", "D3.js"],
-    demoUrl: "https://demo.humblebabs.com/analytics",
-    githubUrl: "https://github.com/HumbledDS/analytics-dashboard",
-    status: "Live",
-  },
-  {
-    title: "Cloud ML Pipeline",
-    description: "Automated machine learning pipeline for model training, validation, and deployment on AWS.",
-    image: "/images/projects/ml-pipeline.jpg",
-    technologies: ["AWS", "Docker", "Python", "MLflow"],
-    demoUrl: null,
-    githubUrl: "https://github.com/HumbledDS/cloud-ml-pipeline",
-    status: "Open Source",
-  },
-  {
-    title: "Data Visualization Suite",
-    description: "Interactive data exploration tools with real-time updates and collaborative features.",
-    image: "/images/projects/data-viz.jpg",
-    technologies: ["Vue.js", "D3.js", "WebSocket", "Node.js"],
-    demoUrl: "https://demo.humblebabs.com/dataviz",
-    githubUrl: "https://github.com/HumbledDS/data-viz-suite",
-    status: "Beta",
-  },
-]
+// Get featured projects from centralized data
+const featuredProjects = getFeaturedProjects()
 
 export default function Home() {
   return (
@@ -301,12 +276,23 @@ export default function Home() {
                 whileHover={{ scale: 1.03, y: -5 }}
                 className="group relative bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
               >
-                {/* Project image placeholder */}
+                {/* Project image */}
                 <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Code className="w-16 h-16 text-muted-foreground/50 group-hover:text-primary/70 transition-colors duration-300" />
-                  </div>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Code className="w-16 h-16 text-muted-foreground/50 group-hover:text-primary/70 transition-colors duration-300" />
+                      </div>
+                    </>
+                  )}
                   
                   {/* Status badge */}
                   <div className="absolute top-4 right-4">
@@ -352,12 +338,39 @@ export default function Home() {
                       </Link>
                     )}
                     <Link
-                      href={project.title === "AI-Powered Analytics Dashboard" ? "/projects/ai-powered-analytics-dashboard" : project.githubUrl}
+                      href={
+                        project.title === "AI-Powered Analytics Dashboard" ? "/projects/ai-powered-analytics-dashboard" :
+                        project.title === "Cloud ML Pipeline" ? "/projects/cloud-ml-pipeline" :
+                        project.title === "Data Visualization Suite" ? "/projects/data-visualization-suite" :
+                        project.title === "Computer Vision Analytics" ? "/projects/computer-vision-analytics" :
+                        project.title === "Financial Data Analysis Platform" ? "/projects/financial-data-analysis" :
+                        project.title === "LLM RAG Implementation" ? "/projects/llm-rag-implementation" :
+                        project.githubUrl
+                      }
                       className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted/50 transition-colors duration-300 text-sm font-medium"
-                      target={project.title === "AI-Powered Analytics Dashboard" ? "_self" : "_blank"}
-                      rel={project.title === "AI-Powered Analytics Dashboard" ? "" : "noopener noreferrer"}
+                      target={
+                        project.title === "AI-Powered Analytics Dashboard" || 
+                        project.title === "Cloud ML Pipeline" ||
+                        project.title === "Data Visualization Suite" ||
+                        project.title === "Computer Vision Analytics" ||
+                        project.title === "Financial Data Analysis Platform" ||
+                        project.title === "LLM RAG Implementation" ? "_self" : "_blank"
+                      }
+                      rel={
+                        project.title === "AI-Powered Analytics Dashboard" || 
+                        project.title === "Cloud ML Pipeline" ||
+                        project.title === "Data Visualization Suite" ||
+                        project.title === "Computer Vision Analytics" ||
+                        project.title === "Financial Data Analysis Platform" ||
+                        project.title === "LLM RAG Implementation" ? "" : "noopener noreferrer"
+                      }
                     >
-                      {project.title === "AI-Powered Analytics Dashboard" ? (
+                      {(project.title === "AI-Powered Analytics Dashboard" || 
+                        project.title === "Cloud ML Pipeline" ||
+                        project.title === "Data Visualization Suite" ||
+                        project.title === "Computer Vision Analytics" ||
+                        project.title === "Financial Data Analysis Platform" ||
+                        project.title === "LLM RAG Implementation") ? (
                         <>
                           <ExternalLink className="w-4 h-4" />
                           View Details
