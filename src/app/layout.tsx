@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
-import { LoadingProvider } from "../components/providers/loading-provider";
 import { Header } from "../components/layout/header";
 import { Footer } from "../components/layout/footer";
 
@@ -57,15 +56,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LoadingProvider>
-            <div className="flex flex-col min-h-screen">
-              <Header />
-              <main className="flex-1 pt-20">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </LoadingProvider>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1 pt-20">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

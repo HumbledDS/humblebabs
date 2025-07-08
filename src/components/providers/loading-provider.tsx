@@ -30,7 +30,6 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
   return (
     <LoadingContext.Provider value={{ isLoading, setIsLoading, loadingMessage, setLoadingMessage }}>
       {children}
-      {isLoading && <PageLoading message={loadingMessage} />}
     </LoadingContext.Provider>
   )
 }

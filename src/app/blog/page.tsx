@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import { Calendar, Clock, Tag, ArrowRight, Search, Filter } from "lucide-react"
 
 const blogPosts = [
@@ -17,7 +18,8 @@ const blogPosts = [
     category: "Machine Learning",
     tags: ["ML", "Airflow", "Python", "Data Engineering"],
     featured: true,
-    slug: "building-scalable-ml-pipelines"
+    slug: "building-scalable-ml-pipelines",
+    image: "/images/blog/ml-pipeline-airflow.png"
   },
   {
     id: 2,
@@ -30,7 +32,8 @@ const blogPosts = [
     category: "AI",
     tags: ["AI", "Healthcare", "Ethics", "Innovation"],
     featured: true,
-    slug: "ai-healthcare-future"
+    slug: "ai-healthcare-future",
+    image: "/images/blog/healthcareAI.jpg"
   },
   {
     id: 3,
@@ -43,7 +46,8 @@ const blogPosts = [
     category: "Web Development",
     tags: ["React", "Performance", "JavaScript", "Frontend"],
     featured: false,
-    slug: "optimizing-react-performance"
+    slug: "optimizing-react-performance",
+    image: "/images/blog/optimizing-react-performance.png"
   },
   {
     id: 4,
@@ -56,7 +60,8 @@ const blogPosts = [
     category: "Data Science",
     tags: ["D3.js", "Visualization", "JavaScript", "Data"],
     featured: false,
-    slug: "d3-js-visualization-best-practices"
+    slug: "d3-js-visualization-best-practices",
+    image: "/images/blog/dataviz2.jpg"
   },
   {
     id: 5,
@@ -69,7 +74,8 @@ const blogPosts = [
     category: "Cloud Computing",
     tags: ["AWS", "SageMaker", "ML", "Deployment"],
     featured: false,
-    slug: "deploying-ml-models-aws"
+    slug: "deploying-ml-models-aws",
+    image: "/images/blog/deploying-ml-models-aws.jpg"
   },
   {
     id: 6,
@@ -82,7 +88,8 @@ const blogPosts = [
     category: "Machine Learning",
     tags: ["NLP", "Transformers", "Deep Learning", "BERT"],
     featured: false,
-    slug: "transformer-architecture-nlp"
+    slug: "transformer-architecture-nlp",
+    image: "/images/blog/transformer-architecture-nlp.png"
   }
 ]
 
@@ -179,21 +186,34 @@ export default function BlogPage() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="group bg-card rounded-2xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Tag className="w-8 h-8 text-primary" />
+                                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === 0}
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Tag className="w-8 h-8 text-primary" />
+                        </div>
                       </div>
-                    </div>
-                    
-                    {/* Featured Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-600">
-                        Featured
-                      </span>
-                    </div>
+                    </>
+                  )}
+                  
+                  {/* Featured Badge */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-600">
+                      Featured
+                    </span>
                   </div>
+                </div>
 
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3">
@@ -269,14 +289,26 @@ export default function BlogPage() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="group bg-card rounded-xl border border-border overflow-hidden hover:border-primary/50 transition-all duration-300"
                 >
-                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <Tag className="w-6 h-6 text-primary" />
+                                  <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
+                  {post.image ? (
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                          <Tag className="w-6 h-6 text-primary" />
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </>
+                  )}
+                </div>
 
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3">

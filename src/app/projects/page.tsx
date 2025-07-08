@@ -203,12 +203,14 @@ export default function ProjectsPage() {
               {/* Project Image */}
               <div className="aspect-video bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
                 {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                                  <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={index === 0}
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 ) : (
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 )}

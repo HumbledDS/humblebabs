@@ -72,27 +72,18 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Floating elements */}
-            <motion.div className="flex justify-center mb-8">
+            {/* Floating elements - simplified for performance */}
+            <div className="flex justify-center mb-8">
               {[Brain, Cloud, Database, Code].map((Icon, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="w-8 h-8 mx-2 text-primary/60"
-                  animate={{ 
-                    y: [0, -10, 0],
-                    rotate: [0, 5, -5, 0],
-                  }}
-                  transition={{ 
-                    duration: 3,
-                    delay: index * 0.5,
-                    repeat: Infinity,
-                    ease: "easeInOut"
-                  }}
+                  className="w-8 h-8 mx-2 text-primary/60 animate-bounce"
+                  style={{ animationDelay: `${index * 0.5}s` }}
                 >
                   <Icon className="w-full h-full" />
-                </motion.div>
+                </div>
               ))}
-            </motion.div>
+            </div>
 
             <motion.h1 
               className="text-5xl md:text-7xl font-bold"
@@ -101,25 +92,11 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span>Hi, I'm </span>
-              <motion.span 
-                className="text-[#23235b] relative"
-                animate={{ 
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{ 
-                  duration: 5,
-                  repeat: Infinity,
-                }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
+              <span className="text-[#23235b] relative">
                 Babacar.
-                <motion.span
-                  className="absolute -top-2 -right-2 text-2xl"
-                  animate={{ rotate: [0, 20, -20, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >  ✨
-                </motion.span>
-              </motion.span>
+                <span className="absolute -top-2 -right-2 text-2xl animate-pulse">  ✨
+                </span>
+              </span>
             </motion.h1>
             
             <motion.div
@@ -283,6 +260,8 @@ export default function Home() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      priority={index === 0}
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   ) : (
