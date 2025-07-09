@@ -2,29 +2,29 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle, AlertCircle } from "lucide-react"
 
 const contactMethods = [
   {
     icon: Mail,
     title: "Email",
-    value: "hello@humblebabs.com",
-    href: "mailto:hello@humblebabs.com",
+    value: "contact@humblebabs.com",
+    href: "mailto:contact@humblebabs.com",
     description: "Send me an email for any inquiries"
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+33 6 79 81 97 72",
+    href: "tel:+33679819772",
     description: "Call me for urgent matters"
   },
   {
     icon: MapPin,
     title: "Location",
-    value: "San Francisco, CA",
+    value: "Region Parisienne, France",
     href: "#",
-    description: "Based in the Bay Area"
+    description: "Based in the Paris Region"
   }
 ]
 
@@ -32,13 +32,13 @@ const socialLinks = [
   {
     icon: Linkedin,
     title: "LinkedIn",
-    href: "https://linkedin.com/in/humblebabs",
+    href: "https://linkedin.com/in/babacargueye1/",
     color: "hover:text-blue-600"
   },
   {
     icon: Github,
     title: "GitHub",
-    href: "https://github.com/humblebabs",
+    href: "https://github.com/humbledds",
     color: "hover:text-gray-900 dark:hover:text-white"
   }
 ]
@@ -52,22 +52,42 @@ export default function ContactPage() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", email: "", subject: "", message: "" })
-    }, 3000)
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi')
+      }
+
+      setIsSubmitted(true)
+      setError(null) // Clear any previous errors
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      }, 3000)
+      
+    } catch (error) {
+      console.error('Erreur:', error)
+      setError(error instanceof Error ? error.message : 'Erreur lors de l\'envoi du message')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -181,6 +201,20 @@ export default function ContactPage() {
           >
             <div className="bg-card rounded-2xl border border-border p-8">
               <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+              
+              {/* Error Message */}
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-500/10 border border-red-500/20 rounded-lg"
+                >
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-red-500" />
+                    <span className="text-red-600 font-medium">{error}</span>
+                  </div>
+                </motion.div>
+              )}
               
               {isSubmitted ? (
                 <motion.div
