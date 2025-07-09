@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github } from "lucide-react"
-import { getFeaturedProjects } from "@/app/projects/page"
+import { getFeaturedProjects } from "@/app/projects/data"
 
 export function FeaturedProjects() {
   const featuredProjects = getFeaturedProjects()

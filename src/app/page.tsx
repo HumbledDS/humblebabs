@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Code, Database, Cloud, Brain, Sparkles, Download, ExternalLink, Github, Play } from "lucide-react"
 import { motion } from "framer-motion"
-import { getFeaturedProjects } from "./projects/page"
+import { getFeaturedProjects } from "./projects/data"
 
 const skills = [
   {
