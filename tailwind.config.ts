@@ -9,12 +9,7 @@ const config: Config = {
       './components/**/*.{js,ts,jsx,tsx,mdx}',
       './content/**/*.{js,ts,jsx,tsx,mdx}',
     ],
-    safelist: [
-      'absolute',
-      'relative',
-      'fixed',
-      'sticky',
-    ],
+    
   },
   darkMode: 'class',
   theme: {
