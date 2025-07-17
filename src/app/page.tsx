@@ -106,13 +106,14 @@ export default function Home() {
               className="space-y-6"
             >
               <p className="text-xl md:text-3xl text-muted-foreground font-medium">
-                Data & AI Engineer
+                Data & AI Engineer, Python Developer
               </p>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                Passionate about transforming data into actionable insights and building intelligent systems. 
-                I specialize in <span className="text-primary font-semibold">Data Engineering</span>, 
-                <span className="text-purple-600 font-semibold"> Cloud Computing</span>, and 
-                <span className="text-blue-600 font-semibold"> Machine Learning</span>.
+                Mostly solo building systems that manages and uses data. 
+                I specialize in <span className="text-primary font-semibold">Data Engineering</span>, and
+                <span className="text-purple-600 font-semibold"> Cloud Computing</span>.
+                I have a personal preference for SaaS and Banking/financial markets projects.
+    
               </p>
             </motion.div>
           </motion.div>

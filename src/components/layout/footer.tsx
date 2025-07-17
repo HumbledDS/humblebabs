@@ -69,7 +69,7 @@ export function Footer() {
               </motion.div>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-              Data Engineer & Full-stack developer passionate about building innovative experiences. 
+              Data Engineer & Full-stack developer passionate about building innovative systems. 
               Specializing in Data Engineering, Cloud Computing, AI and Data Science solutions.
             </p>
             <div className="flex space-x-4">
