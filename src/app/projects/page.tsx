@@ -33,7 +33,7 @@ export default function ProjectsPage() {
             <span className="text-[#23235b]">Projects</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A collection of projects showcasing my work in AI, data science, and full-stack development
+            A collection of projects showcasing my work in AI, data science, and financial markets
           </p>
         </motion.div>
 

@@ -33,9 +33,9 @@ const skills = [
   },
   {
     icon: Code,
-    title: "Full-Stack Development",
-    description: "Modern web applications with React, Next.js, and TypeScript. Building end-to-end solutions.",
-    technologies: ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL"],
+    title: "Financial Markets",
+    description: "Building end-to-end solutions for financial markets using Python, SQL, and Pandas.",
+    technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"],
     color: "from-orange-500 to-red-500",
     bgColor: "bg-orange-500/10",
   },

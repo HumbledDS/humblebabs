@@ -18,7 +18,7 @@ Welcome to my digital playground! This portfolio showcases my journey as a **Dat
 - **🤖 AI & Machine Learning Projects** - From predictive analytics to computer vision
 - **☁️ Cloud Computing Solutions** - Scalable architectures on AWS, Azure, and GCP  
 - **📊 Data Science Applications** - Interactive dashboards and real-time analytics
-- **💻 Full-Stack Development** - Modern web applications with React and Node.js
+- **💻 Financial Markets** - Building end-to-end solutions for financial markets using Python, SQL, and Pandas.
 - **📝 Technical Blog** - Deep dives into ML, cloud computing, and development
 - **🎨 Interactive Experience** - Smooth animations and responsive design
 
