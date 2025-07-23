@@ -184,7 +184,7 @@ export default function ProjectsPage() {
                   {project.demoUrl && (
                     <Link
                       href={project.demoUrl}
-                      className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 text-sm font-medium"
+                      className="flex items-center gap-2 px-3 py-1.5 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 text-xs font-medium"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -194,7 +194,7 @@ export default function ProjectsPage() {
                   )}
                   <Link
                     href={
-                      project.title === "AI-Powered Analytics Dashboard" ? "/projects/ai-powered-analytics-dashboard" :
+                      project.detailsUrl ? project.detailsUrl :
                       project.title === "Cloud ML Pipeline" ? "/projects/cloud-ml-pipeline" :
                       project.title === "Data Visualization Suite" ? "/projects/data-visualization-suite" :
                       project.title === "Computer Vision Analytics" ? "/projects/computer-vision-analytics" :
@@ -202,9 +202,9 @@ export default function ProjectsPage() {
                       project.title === "LLM RAG Implementation" ? "/projects/llm-rag-implementation" :
                       project.githubUrl
                     }
-                    className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted/50 transition-colors duration-300 text-sm font-medium"
+                    className="flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg hover:bg-muted/50 transition-colors duration-300 text-xs font-medium"
                     target={
-                      project.title === "AI-Powered Analytics Dashboard" || 
+                      project.detailsUrl ||
                       project.title === "Cloud ML Pipeline" ||
                       project.title === "Data Visualization Suite" ||
                       project.title === "Computer Vision Analytics" ||
@@ -212,7 +212,7 @@ export default function ProjectsPage() {
                       project.title === "LLM RAG Implementation" ? "_self" : "_blank"
                     }
                     rel={
-                      project.title === "AI-Powered Analytics Dashboard" || 
+                      project.detailsUrl ||
                       project.title === "Cloud ML Pipeline" ||
                       project.title === "Data Visualization Suite" ||
                       project.title === "Computer Vision Analytics" ||
@@ -220,7 +220,7 @@ export default function ProjectsPage() {
                       project.title === "LLM RAG Implementation" ? "" : "noopener noreferrer"
                     }
                   >
-                    {(project.title === "AI-Powered Analytics Dashboard" || 
+                    {(project.detailsUrl ||
                       project.title === "Cloud ML Pipeline" ||
                       project.title === "Data Visualization Suite" ||
                       project.title === "Computer Vision Analytics" ||
@@ -237,6 +237,17 @@ export default function ProjectsPage() {
                       </>
                     )}
                   </Link>
+                  {project.githubUrl && (
+                    <Link
+                      href={project.githubUrl}
+                      className="flex items-center gap-2 px-3 py-1.5 border border-border rounded-lg hover:bg-muted/50 transition-colors duration-300 text-xs font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

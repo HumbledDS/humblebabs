@@ -1,15 +1,16 @@
 export const projects = [
   {
     id: 1,
-    title: "AI-Powered Analytics Dashboard",
-    description: "Real-time analytics platform with machine learning predictions and interactive visualizations.",
-    image: "/images/projects/DataScienceQualityScore.jpg",
-    technologies: ["React", "Python", "TensorFlow", "D3.js", "AWS"],
-    category: "AI/ML",
-    demoUrl: "https://demo.humblebabs.com/analytics",
-    githubUrl: "https://github.com/HumbledDS/analytics-dashboard",
-    status: "Live",
-    date: "2024",
+    title: "S&P 500 Historical Performance Analysis System",
+    description: "A comprehensive research framework for analyzing 100+ years of stock market performance and macro-economic correlations.",
+    image: "/images/projects/FinanceData.jpg", // Update if you have a new image for sp500-historical-analysis
+    technologies: ["Python", "Pandas", "yfinance", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
+    category: "Data",
+    demoUrl: "https://github.com/HumbledDS/Stock-Market-Analysis-Strat1",
+    githubUrl: "https://github.com/HumbledDS/Stock-Market-Analysis-Strat1",
+    detailsUrl: "/projects/sp500-historical-analysis",
+    status: "Open Source",
+    date: "2025",
     featured: true
   },
   {
@@ -76,6 +77,20 @@ export const projects = [
     status: "Open Source",
     date: "2022",
     featured: false
+  },
+  {
+    id: 7,
+    title: "Job Market Analytics Pipeline",
+    description: "A complete end-to-end data engineering pipeline: extract, process, and visualize job market data with Airflow, APIs, and Streamlit.",
+    image: "/images/projects/JobMarket.jpg", // Change if you have a more relevant image
+    technologies: ["Python", "Airflow", "APIs", "SQLite", "Streamlit", "Plotly", "DBT"],
+    category: "Data Engineering",
+    demoUrl: "https://job-market-pipeline-ks2yydrdw.streamlit.app/",
+    githubUrl: "https://github.com/HumbledDS/job-market-pipeline",
+    detailsUrl: "/projects/job-market-analysis",
+    status: "Live Demo",
+    date: "2025",
+    featured: true
   }
 ]
 
