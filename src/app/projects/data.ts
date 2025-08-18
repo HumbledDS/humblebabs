@@ -99,7 +99,62 @@ export const projects = [
     date: "2025",
     featured: true
   },
-  
+  {
+    id: 8,
+    title: "Advanced Data Modeling Patterns",
+    description: "Enterprise-grade data modeling patterns and architectures for complex, scalable, and compliant data systems.",
+    image: "/images/projects/DataScienceQualityScore.jpg",
+    technologies: ["PostgreSQL", "Snowflake", "BigQuery", "Neo4j", "InfluxDB", "DynamoDB"],
+    category: "Data Architecture",
+    demoUrl: null,
+    githubUrl: "https://github.com/HumbledDS",
+    detailsUrl: "/projects/advanced-data-modeling-patterns",
+    status: "Expert",
+    date: "2025",
+    featured: true
+  },
+  {
+    id: 9,
+    title: "Enterprise Data Pipeline Design",
+    description: "Design and implement scalable, reliable, and performant data pipelines for enterprise-grade data processing and analytics.",
+    image: "/images/projects/DataStreamPipeline.jpg",
+    technologies: ["Apache Kafka", "Apache Spark", "Apache Flink", "Delta Lake", "Kubernetes"],
+    category: "Data Engineering",
+    demoUrl: null,
+    githubUrl: "https://github.com/HumbledDS",
+    detailsUrl: "/projects/enterprise-data-pipeline-design",
+    status: "Advanced",
+    date: "2025",
+    featured: true
+  },
+  {
+    id: 10,
+    title: "Real-time Analytics & ML Pipelines",
+    description: "Build production-ready ML pipelines with real-time analytics, automated model serving, and continuous learning capabilities.",
+    image: "/images/projects/UnderTheHood.jpg",
+    technologies: ["Apache Flink", "MLflow", "TensorFlow Serving", "Redis", "Kubernetes"],
+    category: "AI/ML",
+    demoUrl: null,
+    githubUrl: "https://github.com/HumbledDS",
+    detailsUrl: "/projects/real-time-analytics-ml-pipelines",
+    status: "Expert",
+    date: "2025",
+    featured: true
+  },
+  {
+    id: 11,
+    title: "Data Governance & Compliance",
+    description: "Comprehensive data governance and compliance solutions for enterprise data protection, privacy, and regulatory adherence.",
+    image: "/images/projects/ScoringHeat.jpg",
+    technologies: ["Apache Atlas", "Apache Ranger", "Collibra", "OneTrust", "BigID", "AWS KMS"],
+    category: "Data Governance",
+    demoUrl: null,
+    githubUrl: "https://github.com/HumbledDS",
+    detailsUrl: "/projects/data-governance-compliance",
+    status: "Expert",
+    date: "2025",
+    featured: true
+  }
 ]
 
 // Function to get featured projects
