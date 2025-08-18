@@ -24,7 +24,7 @@ export default function InsuranceOLAPPipelinePage() {
     {
       title: "Insurance Data Modeling Strategy",
       description: "Design a comprehensive data model that supports both operational and analytical workloads for insurance operations.",
-      icon: Database,
+      icon: "database",
       content: `
         ## Core Insurance Data Model
         
@@ -89,7 +89,7 @@ CREATE INDEX idx_policy_customer ON dim_policy(customer_id);`
     {
       title: "OLAP Cube Design",
       description: "Design multi-dimensional data structures for complex insurance analytics and reporting.",
-      icon: BarChart3,
+      icon: "bar-chart-3",
       content: `
         ## OLAP Cube Dimensions
         
@@ -145,7 +145,7 @@ REFRESH MATERIALIZED VIEW mv_monthly_claims_summary;`
     {
       title: "Real-time Analytics Pipeline",
       description: "Build a streaming pipeline for real-time insurance analytics and fraud detection.",
-      icon: Zap,
+      icon: "zap",
       content: `
         ## Real-time Processing Architecture
         
@@ -230,7 +230,7 @@ public class ClaimsStreamProcessor extends KeyedProcessFunction<String, ClaimEve
     {
       title: "Regulatory Compliance & Governance",
       description: "Implement comprehensive data governance for insurance regulatory requirements.",
-      icon: Shield,
+      icon: "shield",
       content: `
         ## Compliance Requirements
         

@@ -25,7 +25,7 @@ export default function ETLBatchPipelinePage() {
     {
       title: "ETL Data Architecture",
       description: "Design a comprehensive data architecture for batch ETL processing with proper staging and data quality.",
-      icon: Database,
+      icon: "database",
       content: `
         ## ETL Batch Processing Architecture
         
@@ -118,7 +118,7 @@ CREATE INDEX idx_etl_jobs_status ON staging.etl_jobs(status, start_time);`
     {
       title: "Data Transformation Pipeline",
       description: "Implement robust data transformation logic with error handling and data quality checks.",
-      icon: RefreshCw,
+      icon: "refresh-cw",
       content: `
         ## Data Transformation Strategies
         
@@ -388,7 +388,7 @@ class ETLTransformer:
     {
       title: "Batch Processing Orchestration",
       description: "Design a robust orchestration system for managing ETL batch jobs with dependencies and error handling.",
-      icon: Workflow,
+      icon: "workflow",
       content: `
         ## ETL Job Orchestration
         
@@ -553,7 +553,7 @@ validate_data >> validation_failure_alert`
     {
       title: "Data Quality & Monitoring",
       description: "Implement comprehensive data quality monitoring and alerting for the ETL pipeline.",
-      icon: Settings,
+      icon: "settings",
       content: `
         ## Data Quality Framework
         

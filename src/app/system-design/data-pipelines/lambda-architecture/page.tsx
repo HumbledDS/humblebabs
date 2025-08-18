@@ -21,7 +21,7 @@ export default function LambdaArchitecturePage() {
     {
       title: "Lambda Architecture Overview",
       description: "Design a hybrid architecture combining batch and real-time processing for comprehensive data analytics.",
-      icon: Database,
+      icon: "database",
       content: `
         ## Lambda Architecture Components
         
@@ -80,7 +80,7 @@ public class LambdaArchitectureConfig {
     {
       title: "Batch Layer Implementation",
       description: "Implement the batch processing layer for comprehensive historical data analysis.",
-      icon: BarChart3,
+      icon: "bar-chart-3",
       content: `
         ## Batch Processing Strategy
         

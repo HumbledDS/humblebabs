@@ -199,8 +199,8 @@ public class ModelServingService {
       id: "planning-1",
       title: "Define ML Use Cases",
       description: "Identify specific ML use cases and success metrics for your real-time analytics pipeline",
-      category: "planning",
-      priority: "critical",
+      category: "planning" as const,
+      priority: "critical" as const,
       estimatedTime: "1-2 weeks",
       dependencies: []
     },
@@ -208,8 +208,8 @@ public class ModelServingService {
       id: "planning-2",
       title: "Design Feature Strategy",
       description: "Plan feature engineering strategy, feature store architecture, and data lineage",
-      category: "planning",
-      priority: "critical",
+      category: "planning" as const,
+      priority: "critical" as const,
       estimatedTime: "1-2 weeks",
       dependencies: ["planning-1"]
     },
@@ -217,8 +217,8 @@ public class ModelServingService {
       id: "planning-3",
       title: "Choose ML Infrastructure",
       description: "Select ML frameworks, model serving platforms, and monitoring tools",
-      category: "planning",
-      priority: "high",
+      category: "planning" as const,
+      priority: "high" as const,
       estimatedTime: "1 week",
       dependencies: ["planning-2"]
     },
@@ -226,8 +226,8 @@ public class ModelServingService {
       id: "implementation-1",
       title: "Build Feature Store",
       description: "Implement feature store with online and offline serving capabilities",
-      category: "implementation",
-      priority: "high",
+      category: "implementation" as const,
+      priority: "high" as const,
       estimatedTime: "3-4 weeks",
       dependencies: ["planning-3"]
     },
@@ -235,8 +235,8 @@ public class ModelServingService {
       id: "implementation-2",
       title: "Create ML Pipeline",
       description: "Build end-to-end ML pipeline from data ingestion to model serving",
-      category: "implementation",
-      priority: "high",
+      category: "implementation" as const,
+      priority: "high" as const,
       estimatedTime: "4-6 weeks",
       dependencies: ["implementation-1"]
     },
@@ -244,8 +244,8 @@ public class ModelServingService {
       id: "testing-1",
       title: "Model Validation",
       description: "Validate model performance, feature drift, and prediction accuracy",
-      category: "testing",
-      priority: "high",
+      category: "testing" as const,
+      priority: "high" as const,
       estimatedTime: "1-2 weeks",
       dependencies: ["implementation-2"]
     },
@@ -253,8 +253,8 @@ public class ModelServingService {
       id: "deployment-1",
       title: "Production Deployment",
       description: "Deploy ML pipeline to production with monitoring and alerting",
-      category: "deployment",
-      priority: "critical",
+      category: "deployment" as const,
+      priority: "critical" as const,
       estimatedTime: "1-2 weeks",
       dependencies: ["testing-1"]
     },
@@ -262,8 +262,8 @@ public class ModelServingService {
       id: "monitoring-1",
       title: "ML Operations",
       description: "Set up MLOps monitoring, model retraining, and performance tracking",
-      category: "monitoring",
-      priority: "high",
+      category: "monitoring" as const,
+      priority: "high" as const,
       estimatedTime: "2-3 weeks",
       dependencies: ["deployment-1"]
     }
@@ -313,7 +313,7 @@ public class ModelServingService {
       name: "MLflow",
       description: "Open-source platform for managing the end-to-end machine learning lifecycle",
       category: "ML Platform",
-      pricing: "free",
+      pricing: "free" as const,
       features: ["Experiment Tracking", "Model Registry", "Model Serving", "Deployment", "Reproducibility"],
       pros: ["Excellent experiment tracking", "Model versioning", "Easy deployment", "Open source", "Good documentation"],
       cons: ["Limited enterprise features", "Basic model serving", "Community support only"],
@@ -321,16 +321,16 @@ public class ModelServingService {
       notFor: ["Enterprise ML platforms", "Advanced model serving", "Large-scale deployments"],
       rating: 4.3,
       marketShare: "18.5",
-      learningCurve: "easy",
-      community: "large",
-      documentation: "good"
+      learningCurve: "easy" as const,
+      community: "large" as const,
+      documentation: "good" as const
     },
     {
       id: "tensorflow-serving",
       name: "TensorFlow Serving",
       description: "High-performance serving system for machine learning models designed for production environments",
       category: "Model Serving",
-      pricing: "free",
+      pricing: "free" as const,
       features: ["High Performance", "Model Versioning", "A/B Testing", "REST/gRPC APIs", "Docker Support"],
       pros: ["Excellent performance", "Production ready", "Good versioning", "Flexible APIs", "Docker support"],
       cons: ["TensorFlow specific", "Complex configuration", "Limited model formats"],
@@ -338,9 +338,9 @@ public class ModelServingService {
       notFor: ["Non-TensorFlow models", "Simple deployments", "Quick prototyping"],
       rating: 4.6,
       marketShare: "25.3",
-      learningCurve: "medium",
-      community: "large",
-      documentation: "good"
+      learningCurve: "medium" as const,
+      community: "large" as const,
+      documentation: "good" as const
     }
   ]
 

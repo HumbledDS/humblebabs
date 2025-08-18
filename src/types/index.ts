@@ -187,7 +187,7 @@ export interface TradeOff {
 
 export interface FlowStep {
   id: string
-  name: string
+  title: string
   description: string
   technologies: string[]
   order: number

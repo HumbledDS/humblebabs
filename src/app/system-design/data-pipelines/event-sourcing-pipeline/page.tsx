@@ -21,7 +21,7 @@ export default function EventSourcingPipelinePage() {
     {
       title: "Event Sourcing Architecture",
       description: "Design an event sourcing pipeline that captures all state changes as a sequence of events.",
-      icon: Database,
+      icon: "database",
       content: `
         ## Event Sourcing Components
         
@@ -122,7 +122,7 @@ public class CustomerAggregate {
     {
       title: "Event Store & Projections",
       description: "Implement event storage and build read models from event streams.",
-      icon: BarChart3,
+      icon: "bar-chart-3",
       content: `
         ## Event Storage Strategy
         

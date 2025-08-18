@@ -5,7 +5,7 @@ import { TutorialSection } from "@/components/projects/tutorial-section"
 import { ImplementationChecklist } from "@/components/projects/implementation-checklist"
 import { ArchitectureDiagram } from "@/components/projects/architecture-diagram"
 import { ToolComparison } from "@/components/projects/tool-comparison"
-import { Database, Code2, Brain, CheckCircle, AlertTriangle, ArrowRight, Lightbulb, ShoppingCart, RefreshCw, BarChart3, Settings } from "lucide-react"
+import { Code2, Brain, CheckCircle, ShoppingCart } from "lucide-react"
 
 export default function RetailLegacyMigrationPipelinePage() {
   const dataModelingSteps = [

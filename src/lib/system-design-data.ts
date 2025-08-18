@@ -28,28 +28,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "real-time-ingestion",
-        name: "Real-Time Data Ingestion",
+        title: "Real-Time Data Ingestion",
         description: "Capture transaction data, user events, and external API feeds in real-time",
         technologies: ["Apache Kafka", "CDC", "REST APIs", "WebSockets"],
         order: 1
       },
       {
         id: "fraud-detection",
-        name: "Real-Time Fraud Detection",
+        title: "Real-Time Fraud Detection",
         description: "ML-based fraud detection with sub-100ms latency",
         technologies: ["Apache Flink", "ML Models", "Redis", "Feature Store"],
         order: 2
       },
       {
         id: "credit-scoring",
-        name: "Dynamic Credit Scoring",
+        title: "Dynamic Credit Scoring",
         description: "Real-time credit assessment using multiple data sources",
         technologies: ["ML Pipeline", "External APIs", "Risk Models"],
         order: 3
       },
       {
         id: "compliance-processing",
-        name: "Regulatory Compliance",
+        title: "Regulatory Compliance",
         description: "PSD2, GDPR compliance with audit trails",
         technologies: ["Data Governance", "Audit Logs", "Encryption"],
         order: 4
@@ -121,21 +121,21 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "extract",
-        name: "Data Extraction",
+        title: "Data Extraction",
         description: "Extract data from various sources (databases, APIs, files)",
         technologies: ["Python", "SQL", "APIs"],
         order: 1
       },
       {
         id: "transform",
-        name: "Data Transformation",
+        title: "Data Transformation",
         description: "Clean, validate, and transform data according to business rules",
         technologies: ["Pandas", "NumPy", "Python"],
         order: 2
       },
       {
         id: "load",
-        name: "Data Loading",
+        title: "Data Loading",
         description: "Load processed data into target data warehouse or database",
         technologies: ["PostgreSQL", "SQL", "Python"],
         order: 3
@@ -206,28 +206,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "sap-extraction",
-        name: "SAP ECC6 Data Extraction",
+        title: "SAP ECC6 Data Extraction",
         description: "Extract data from legacy SAP system during maintenance windows",
         technologies: ["SAP BW", "SAP Data Services", "Oracle", "Batch Jobs"],
         order: 1
       },
       {
         id: "data-harmonization",
-        name: "Data Harmonization",
+        title: "Data Harmonization",
         description: "Standardize data formats across 850+ stores and multiple systems",
         technologies: ["Python", "Pandas", "Data Quality Tools"],
         order: 2
       },
       {
         id: "master-data-management",
-        name: "Master Data Management",
+        title: "Master Data Management",
         description: "Create unified product catalog with 8M SKUs and 50+ nomenclatures",
         technologies: ["MDM Platform", "Data Governance", "Reference Data"],
         order: 3
       },
       {
         id: "analytics-platform",
-        name: "Modern Analytics Platform",
+        title: "Modern Analytics Platform",
         description: "Build unified data warehouse for online/offline analytics",
         technologies: ["PostgreSQL", "Tableau", "Power BI", "Data Warehouse"],
         order: 4
@@ -300,21 +300,21 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "ingest",
-        name: "Data Ingestion",
+        title: "Data Ingestion",
         description: "Ingest data streams from various sources into Kafka topics",
         technologies: ["Kafka Connect", "Kafka Producers"],
         order: 1
       },
       {
         id: "process",
-        name: "Stream Processing",
+        title: "Stream Processing",
         description: "Process data streams in real-time using Kafka Streams",
         technologies: ["Kafka Streams", "Java"],
         order: 2
       },
       {
         id: "output",
-        name: "Data Output",
+        title: "Data Output",
         description: "Send processed results to downstream systems",
         technologies: ["Kafka Consumers", "Databases", "APIs"],
         order: 3
@@ -387,28 +387,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "hipaa-ingestion",
-        name: "HIPAA-Compliant Data Ingestion",
+        title: "HIPAA-Compliant Data Ingestion",
         description: "Secure ingestion of patient data with encryption and access controls",
         technologies: ["Encrypted APIs", "TLS 1.3", "Access Controls", "Audit Logs"],
         order: 1
       },
       {
         id: "real-time-alerts",
-        name: "Real-Time Medical Alerts",
+        title: "Real-Time Medical Alerts",
         description: "Critical health alerts with <1 second latency for life-threatening conditions",
         technologies: ["Apache Flink", "ML Models", "Real-time Rules Engine"],
         order: 2
       },
       {
         id: "predictive-analytics",
-        name: "Predictive Analytics",
+        title: "Predictive Analytics",
         description: "ML-based risk prediction with 85% accuracy for preventive medicine",
         technologies: ["ML Pipeline", "Feature Store", "Model Serving"],
         order: 3
       },
       {
         id: "compliance-audit",
-        name: "HIPAA Compliance & Audit",
+        title: "HIPAA Compliance & Audit",
         description: "Complete audit trail and compliance monitoring",
         technologies: ["Audit Logs", "Compliance Monitoring", "Data Governance"],
         order: 4
@@ -481,21 +481,21 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "batch-layer",
-        name: "Batch Layer",
+        title: "Batch Layer",
         description: "Process all historical data in batches for comprehensive analytics",
         technologies: ["Apache Hadoop", "Apache Spark", "HDFS"],
         order: 1
       },
       {
         id: "speed-layer",
-        name: "Speed Layer",
+        title: "Speed Layer",
         description: "Process real-time data streams for low-latency analytics",
         technologies: ["Apache Storm", "Apache Kafka", "Redis"],
         order: 2
       },
       {
         id: "serving-layer",
-        name: "Serving Layer",
+        title: "Serving Layer",
         description: "Merge batch and speed layer results for querying",
         technologies: ["Apache HBase", "Cassandra", "Elasticsearch"],
         order: 3
@@ -568,28 +568,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "edge-ingestion",
-        name: "Edge Data Ingestion",
+        title: "Edge Data Ingestion",
         description: "Collect data from 50K sensors per factory at 100Hz sampling rate",
         technologies: ["OPC-UA", "Modbus", "Edge Gateways", "Local Processing"],
         order: 1
       },
       {
         id: "quality-control",
-        name: "Real-Time Quality Control",
+        title: "Real-Time Quality Control",
         description: "Inline quality control with <100ms latency for immediate defect rejection",
         technologies: ["Computer Vision", "ML Models", "Real-time Rules Engine"],
         order: 2
       },
       {
         id: "predictive-maintenance",
-        name: "Predictive Maintenance",
+        title: "Predictive Maintenance",
         description: "ML-based maintenance prediction reducing downtime by 40%",
         technologies: ["Time Series Analysis", "Anomaly Detection", "ML Models"],
         order: 3
       },
       {
         id: "central-analytics",
-        name: "Central Analytics & OEE",
+        title: "Central Analytics & OEE",
         description: "Overall Equipment Effectiveness monitoring across 15 factories",
         technologies: ["Data Warehouse", "OLAP Cubes", "Business Intelligence"],
         order: 4
@@ -662,21 +662,21 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "catalog",
-        name: "Data Catalog",
+        title: "Data Catalog",
         description: "Automatically discover and catalog data sources",
         technologies: ["AWS Glue Data Catalog", "AWS Glue Crawler"],
         order: 1
       },
       {
         id: "etl-job",
-        name: "ETL Job",
+        title: "ETL Job",
         description: "Transform data using serverless Spark jobs",
         technologies: ["AWS Glue ETL", "Apache Spark", "Python"],
         order: 2
       },
       {
         id: "target",
-        name: "Target Storage",
+        title: "Target Storage",
         description: "Load processed data to data warehouse or data lake",
         technologies: ["AWS Redshift", "AWS S3", "AWS RDS"],
         order: 3
@@ -749,21 +749,21 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "event-capture",
-        name: "Event Capture",
+        title: "Event Capture",
         description: "Capture all domain events from business operations",
         technologies: ["Event Store", "Apache Kafka", "Message Queues"],
         order: 1
       },
       {
         id: "event-storage",
-        name: "Event Storage",
+        title: "Event Storage",
         description: "Store events in append-only event log",
         technologies: ["EventStore", "PostgreSQL", "Apache Kafka"],
         order: 2
       },
       {
         id: "projection",
-        name: "Projection",
+        title: "Projection",
         description: "Build read models from event streams",
         technologies: ["Node.js", "Redis", "Elasticsearch"],
         order: 3
@@ -836,28 +836,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "viewing-events",
-        name: "Viewing Event Collection",
+        title: "Viewing Event Collection",
         description: "Capture 500M viewing events per day from 15M subscribers",
         technologies: ["Apache Kafka", "Mobile SDKs", "Web Analytics", "CDN Logs"],
         order: 1
       },
       {
         id: "real-time-recommendations",
-        name: "Real-Time Recommendations",
+        title: "Real-Time Recommendations",
         description: "Personalized content recommendations with <100ms latency",
         technologies: ["ML Models", "Collaborative Filtering", "Real-time Features"],
         order: 2
       },
       {
         id: "anti-piracy-detection",
-        name: "Anti-Piracy Detection",
+        title: "Anti-Piracy Detection",
         description: "Real-time piracy detection with <5 minute takedown",
         technologies: ["Video Fingerprinting", "ML Detection", "Automated Takedown"],
         order: 3
       },
       {
         id: "cdn-optimization",
-        name: "CDN Optimization",
+        title: "CDN Optimization",
         description: "Bandwidth optimization reducing costs by 30%",
         technologies: ["CDN Analytics", "Bandwidth Optimization", "Quality Adaptation"],
         order: 4
@@ -930,28 +930,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "multi-country-ingestion",
-        name: "Multi-Country Data Ingestion",
+        title: "Multi-Country Data Ingestion",
         description: "Consolidate data from 25 core insurance systems across different countries",
         technologies: ["ETL Pipelines", "Data Integration", "Oracle", "DB2", "SQL Server"],
         order: 1
       },
       {
         id: "actuarial-modeling",
-        name: "Actuarial Modeling & Calculations",
+        title: "Actuarial Modeling & Calculations",
         description: "Complex actuarial calculations including provisions, IBNR, and chain ladder analysis",
         technologies: ["R", "Python", "Actuarial Models", "Monte Carlo Simulations"],
         order: 2
       },
       {
         id: "regulatory-reporting",
-        name: "Regulatory Reporting (Solvency II)",
+        title: "Regulatory Reporting (Solvency II)",
         description: "Automated regulatory reporting for 30 countries with compliance monitoring",
         technologies: ["Compliance Engine", "Regulatory Frameworks", "Audit Trails"],
         order: 3
       },
       {
         id: "olap-cubes",
-        name: "OLAP Cubes & Analytics",
+        title: "OLAP Cubes & Analytics",
         description: "Multi-dimensional analysis across geography, product, channel, and time dimensions",
         technologies: ["Snowflake", "OLAP Cubes", "Business Intelligence", "Tableau"],
         order: 4
@@ -1024,28 +1024,28 @@ export const pipelineArchitectures: PipelineArchitecture[] = [
     flowSteps: [
       {
         id: "market-data-ingestion",
-        name: "Real-Time Market Data Ingestion",
+        title: "Real-Time Market Data Ingestion",
         description: "Process 100K market updates per second for equities, options, and crypto",
         technologies: ["Market Data Feeds", "High-Speed Networks", "Data Normalization"],
         order: 1
       },
       {
         id: "risk-calculation",
-        name: "Real-Time Risk Calculation",
+        title: "Real-Time Risk Calculation",
         description: "Calculate risk metrics including VaR, Greeks, and margin requirements",
         technologies: ["GPU Computing", "Risk Models", "Real-time Analytics"],
         order: 2
       },
       {
         id: "position-aggregation",
-        name: "Portfolio Position Aggregation",
+        title: "Portfolio Position Aggregation",
         description: "Real-time aggregation of 5M portfolios with microsecond precision",
         technologies: ["In-Memory Computing", "Distributed Databases", "Real-time OLAP"],
         order: 3
       },
       {
         id: "compliance-monitoring",
-        name: "Compliance & Regulatory Reporting",
+        title: "Compliance & Regulatory Reporting",
         description: "Real-time compliance monitoring and automated regulatory reporting",
         technologies: ["Compliance Engine", "Audit Trails", "Regulatory APIs"],
         order: 4

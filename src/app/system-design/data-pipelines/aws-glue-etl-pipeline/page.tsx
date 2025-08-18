@@ -21,7 +21,7 @@ export default function AWSGlueETLPipelinePage() {
     {
       title: "AWS Glue Architecture",
       description: "Design a serverless ETL pipeline using AWS Glue for data processing and transformation.",
-      icon: Cloud,
+      icon: "cloud",
       content: `
         ## AWS Glue ETL Components
         
@@ -99,7 +99,7 @@ job.commit()`
     {
       title: "Data Catalog & Crawlers",
       description: "Implement automatic data discovery and schema management with Glue Crawlers.",
-      icon: Database,
+      icon: "database",
       content: `
         ## Data Discovery Strategy
         

@@ -28,28 +28,28 @@ export const microserviceArchitectures: MicroserviceArchitecture[] = [
     flowSteps: [
       {
         id: "request",
-        name: "Client Request",
+        title: "Client Request",
         description: "Client sends request to API Gateway",
         technologies: ["HTTP/HTTPS", "REST", "GraphQL"],
         order: 1
       },
       {
         id: "authentication",
-        name: "Authentication & Authorization",
+        title: "Authentication & Authorization",
         description: "Validate JWT tokens and check permissions",
         technologies: ["JWT", "OAuth2", "RBAC"],
         order: 2
       },
       {
         id: "routing",
-        name: "Request Routing",
+        title: "Request Routing",
         description: "Route request to appropriate microservice",
         technologies: ["Load Balancer", "Service Discovery", "Routing Rules"],
         order: 3
       },
       {
         id: "response",
-        name: "Response Aggregation",
+        title: "Response Aggregation",
         description: "Aggregate responses from multiple services",
         technologies: ["Response Caching", "Data Transformation"],
         order: 4
@@ -125,28 +125,28 @@ export const microserviceArchitectures: MicroserviceArchitecture[] = [
     flowSteps: [
       {
         id: "sidecar-injection",
-        name: "Sidecar Injection",
+        title: "Sidecar Injection",
         description: "Inject Envoy proxy alongside each service",
         technologies: ["Istio Operator", "Kubernetes Mutating Webhook"],
         order: 1
       },
       {
         id: "traffic-management",
-        name: "Traffic Management",
+        title: "Traffic Management",
         description: "Route traffic based on policies and rules",
         technologies: ["Virtual Services", "Destination Rules", "Traffic Splitting"],
         order: 2
       },
       {
         id: "security",
-        name: "Security & Authentication",
+        title: "Security & Authentication",
         description: "Handle mTLS and service authentication",
         technologies: ["mTLS", "Service Accounts", "Authorization Policies"],
         order: 3
       },
       {
         id: "observability",
-        name: "Observability",
+        title: "Observability",
         description: "Collect metrics, logs, and traces",
         technologies: ["Prometheus", "Jaeger", "Kiali"],
         order: 4
@@ -222,28 +222,28 @@ export const microserviceArchitectures: MicroserviceArchitecture[] = [
     flowSteps: [
       {
         id: "event-production",
-        name: "Event Production",
+        title: "Event Production",
         description: "Services produce domain events",
         technologies: ["Event Publishers", "Domain Events", "Event Schema"],
         order: 1
       },
       {
         id: "event-storage",
-        name: "Event Storage",
+        title: "Event Storage",
         description: "Events stored in event store/stream",
         technologies: ["Apache Kafka", "EventStore", "Message Queues"],
         order: 2
       },
       {
         id: "event-consumption",
-        name: "Event Consumption",
+        title: "Event Consumption",
         description: "Services consume and react to events",
         technologies: ["Event Handlers", "Event Consumers", "Event Processors"],
         order: 3
       },
       {
         id: "event-replay",
-        name: "Event Replay",
+        title: "Event Replay",
         description: "Replay events for state reconstruction",
         technologies: ["Event Sourcing", "CQRS", "Projections"],
         order: 4

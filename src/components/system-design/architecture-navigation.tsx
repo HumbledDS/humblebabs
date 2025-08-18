@@ -5,8 +5,18 @@ import { ChevronLeft, ChevronRight, ArrowUp } from "lucide-react"
 import Link from "next/link"
 
 interface ArchitectureNavigationProps {
-  currentArchitecture: any
-  allArchitectures: any[]
+  currentArchitecture: {
+    id: string
+    name: string
+    category: string
+    complexity: 'Low' | 'Medium' | 'High'
+  }
+  allArchitectures: Array<{
+    id: string
+    name: string
+    category: string
+    complexity: 'Low' | 'Medium' | 'High'
+  }>
   sectionHref: string
   sectionTitle: string
 }

@@ -6,8 +6,45 @@ import { BackNavigation } from "@/components/system-design/back-navigation"
 import { ArchitectureNavigation } from "./architecture-navigation"
 
 interface ArchitectureDetailPageProps {
-  architecture: any // Generic type for all architectures
-  allArchitectures: any[]
+  architecture: {
+    id: string
+    name: string
+    description: string
+    complexity: 'Low' | 'Medium' | 'High'
+    technologies: string[]
+    flowSteps: Array<{
+      id: string
+      order: number
+      title: string
+      description: string
+      technologies: string[]
+    }>
+    performance: {
+      latency: string
+      throughput: string
+      scalability: string
+      reliability: string
+      cost: string
+    }
+    tradeOffs: Array<{
+      aspect: string
+      impact: 'Positive' | 'Negative' | 'Neutral'
+      description: string
+    }>
+    useCases: string[]
+    pros: string[]
+    cons: string[]
+    whenToUse: string[]
+    alternatives: string[]
+    category: string
+  }
+  allArchitectures: Array<{
+    id: string
+    name: string
+    description: string
+    complexity: 'Low' | 'Medium' | 'High'
+    category: string
+  }>
   backHref: string
   backLabel: string
   sectionTitle: string
@@ -94,15 +131,15 @@ export function ArchitectureDetailPage({
                 <h2 className="text-2xl font-bold mb-6">Architecture Flow</h2>
                 <div className="space-y-4">
                   {architecture.flowSteps
-                    .sort((a: any, b: any) => a.order - b.order)
-                    .map((step: any) => (
+                    .sort((a, b) => a.order - b.order)
+                    .map((step) => (
                     <div key={step.id} className="p-4 border border-border/50 rounded-xl bg-card">
                       <div className="flex items-start gap-4">
                         <div className="w-8 h-8 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center text-sm">
                           {step.order}
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold mb-2">{step.name}</h3>
+                          <h3 className="font-semibold mb-2">{step.title}</h3>
                           <p className="text-muted-foreground mb-3">{step.description}</p>
                           <div className="flex flex-wrap gap-2">
                             {step.technologies.map((tech: string) => (
@@ -267,7 +304,7 @@ export function ArchitectureDetailPage({
               >
                 <h3 className="text-xl font-bold mb-4">Key Trade-offs</h3>
                 <div className="space-y-3">
-                  {architecture.tradeOffs.map((tradeOff: any) => (
+                  {architecture.tradeOffs.map((tradeOff: { aspect: string; impact: 'Positive' | 'Negative' | 'Neutral'; description: string }) => (
                     <div key={tradeOff.aspect} className="p-3 border border-border/30 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">
                         <span className={`w-2 h-2 rounded-full ${

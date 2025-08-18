@@ -100,7 +100,7 @@ export function PipelineDetailPage({ architecture }: PipelineDetailPageProps) {
                         {step.order}
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-semibold text-foreground mb-2">{step.name}</h3>
+                        <h3 className="font-semibold text-foreground mb-2">{step.title}</h3>
                         <p className="text-muted-foreground mb-3">{step.description}</p>
                         <div className="flex flex-wrap gap-2">
                           {step.technologies.map((tech) => (

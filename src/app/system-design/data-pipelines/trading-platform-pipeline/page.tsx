@@ -25,7 +25,7 @@ export default function TradingPlatformPipelinePage() {
     {
       title: "Trading Data Architecture",
       description: "Design a high-performance data architecture optimized for ultra-low-latency trading operations.",
-      icon: Database,
+      icon: "database",
       content: `
         ## High-Frequency Trading Data Model
         
@@ -101,7 +101,7 @@ CREATE INDEX CONCURRENTLY idx_positions_account_symbol ON positions(account_id, 
     {
       title: "Ultra-Low-Latency Pipeline",
       description: "Build a streaming pipeline optimized for microsecond-level latency in trading operations.",
-      icon: Zap,
+      icon: "zap",
       content: `
         ## Real-time Processing Architecture
         
@@ -199,7 +199,7 @@ public class UltraLowLatencyProcessor {
     {
       title: "Real-time Analytics & ML",
       description: "Implement machine learning models for real-time trading signals and risk management.",
-      icon: BarChart3,
+      icon: "bar-chart-3",
       content: `
         ## Real-time Machine Learning Pipeline
         
@@ -321,7 +321,7 @@ class RealTimeFeatureEngine:
     {
       title: "Risk Management & Compliance",
       description: "Implement comprehensive risk management and regulatory compliance for trading operations.",
-      icon: Activity,
+      icon: "activity",
       content: `
         ## Risk Management Framework
         

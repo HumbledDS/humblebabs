@@ -231,8 +231,8 @@ public class DataLineageService {
       id: "planning-1",
       title: "Assess Compliance Requirements",
       description: "Identify applicable regulations and compliance requirements for your organization",
-      category: "planning",
-      priority: "critical",
+      category: "planning" as const,
+      priority: "critical" as const,
       estimatedTime: "2-3 weeks",
       dependencies: []
     },
@@ -240,8 +240,8 @@ public class DataLineageService {
       id: "planning-2",
       title: "Design Governance Framework",
       description: "Create data governance policies, roles, and responsibilities",
-      category: "planning",
-      priority: "critical",
+      category: "planning" as const,
+      priority: "critical" as const,
       estimatedTime: "2-3 weeks",
       dependencies: ["planning-1"]
     },
@@ -249,8 +249,8 @@ public class DataLineageService {
       id: "planning-3",
       title: "Data Classification Strategy",
       description: "Define data classification scheme and sensitivity levels",
-      category: "planning",
-      priority: "high",
+      category: "planning" as const,
+      priority: "high" as const,
       estimatedTime: "1-2 weeks",
       dependencies: ["planning-2"]
     },
@@ -258,8 +258,8 @@ public class DataLineageService {
       id: "implementation-1",
       title: "Implement Data Discovery",
       description: "Build automated data discovery and classification tools",
-      category: "implementation",
-      priority: "high",
+      category: "implementation" as const,
+      priority: "high" as const,
       estimatedTime: "3-4 weeks",
       dependencies: ["planning-3"]
     },
@@ -267,8 +267,8 @@ public class DataLineageService {
       id: "implementation-2",
       title: "Data Lineage & Catalog",
       description: "Implement data lineage tracking and metadata management",
-      category: "implementation",
-      priority: "high",
+      category: "implementation" as const,
+      priority: "high" as const,
       estimatedTime: "4-6 weeks",
       dependencies: ["implementation-1"]
     },
@@ -276,8 +276,8 @@ public class DataLineageService {
       id: "implementation-3",
       title: "Privacy Controls",
       description: "Implement data privacy controls, encryption, and access management",
-      category: "implementation",
-      priority: "high",
+      category: "implementation" as const,
+      priority: "high" as const,
       estimatedTime: "3-4 weeks",
       dependencies: ["implementation-2"]
     },
@@ -285,8 +285,8 @@ public class DataLineageService {
       id: "testing-1",
       title: "Compliance Testing",
       description: "Test compliance controls and validate regulatory requirements",
-      category: "testing",
-      priority: "high",
+      category: "testing" as const,
+      priority: "high" as const,
       estimatedTime: "2-3 weeks",
       dependencies: ["implementation-3"]
     },
@@ -294,8 +294,8 @@ public class DataLineageService {
       id: "deployment-1",
       title: "Production Deployment",
       description: "Deploy governance controls to production with monitoring",
-      category: "deployment",
-      priority: "critical",
+      category: "deployment" as const,
+      priority: "critical" as const,
       estimatedTime: "1-2 weeks",
       dependencies: ["testing-1"]
     },
@@ -303,8 +303,8 @@ public class DataLineageService {
       id: "monitoring-1",
       title: "Ongoing Monitoring",
       description: "Set up continuous monitoring and compliance reporting",
-      category: "monitoring",
-      priority: "high",
+      category: "monitoring" as const,
+      priority: "high" as const,
       estimatedTime: "2-3 weeks",
       dependencies: ["deployment-1"]
     }
@@ -354,7 +354,7 @@ public class DataLineageService {
       name: "Collibra",
       description: "Enterprise data governance and catalog platform for data discovery, quality, and lineage",
       category: "Data Governance",
-      pricing: "paid",
+      pricing: "paid" as const,
       features: ["Data Catalog", "Data Lineage", "Data Quality", "Policy Management", "Workflow Automation"],
       pros: ["Comprehensive governance", "Enterprise features", "Good integration", "Scalable", "Professional support"],
       cons: ["Expensive", "Complex setup", "Steep learning curve", "Vendor lock-in"],
@@ -362,16 +362,16 @@ public class DataLineageService {
       notFor: ["Small organizations", "Simple use cases", "Budget constraints", "Quick implementation"],
       rating: 4.4,
       marketShare: "22.1",
-      learningCurve: "hard",
-      community: "medium",
-      documentation: "good"
+      learningCurve: "hard" as const,
+      community: "medium" as const,
+      documentation: "good" as const
     },
     {
       id: "apache-atlas",
       name: "Apache Atlas",
       description: "Open-source metadata management and governance platform for Hadoop ecosystem",
       category: "Metadata Management",
-      pricing: "free",
+      pricing: "free" as const,
       features: ["Metadata Management", "Data Lineage", "Classification", "Security", "APIs"],
       pros: ["Free and open source", "Hadoop integration", "Good lineage tracking", "Active community", "Extensible"],
       cons: ["Limited enterprise features", "Hadoop-focused", "Basic UI", "Community support only"],
@@ -379,9 +379,9 @@ public class DataLineageService {
       notFor: ["Non-Hadoop environments", "Enterprise governance", "Advanced features", "Professional support"],
       rating: 3.9,
       marketShare: "15.3",
-      learningCurve: "medium",
-      community: "medium",
-      documentation: "good"
+      learningCurve: "medium" as const,
+      community: "medium" as const,
+      documentation: "good" as const
     }
   ]
 

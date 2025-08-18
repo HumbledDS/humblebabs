@@ -18,7 +18,7 @@ interface TutorialSectionProps {
   description: string
   steps?: TutorialStep[]
   type?: "implementation" | "concept" | "best-practice" | "optimization"
-  icon?: React.ComponentType<any> | React.ReactNode
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>> | React.ReactNode
   content?: string
   codeBlock?: {
     language: string

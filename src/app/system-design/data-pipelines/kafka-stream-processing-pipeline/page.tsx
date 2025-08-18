@@ -21,7 +21,7 @@ export default function KafkaStreamProcessingPipelinePage() {
     {
       title: "Kafka Stream Architecture",
       description: "Design a scalable stream processing architecture using Apache Kafka for real-time data processing.",
-      icon: Database,
+      icon: "database",
       content: `
         ## Kafka Stream Processing Architecture
         
@@ -68,7 +68,7 @@ public class KafkaStreamsConfig {
     {
       title: "Stream Processing Logic",
       description: "Implement real-time stream processing with state management and windowing operations.",
-      icon: Zap,
+      icon: "zap",
       content: `
         ## Stream Processing Operations
         
@@ -231,7 +231,7 @@ public class UserActivityProcessor {
       rating: 4.5,
       marketShare: '30%',
       learningCurve: 'medium' as const,
-      community: 'good' as const,
+      community: 'medium' as const,
       documentation: 'good' as const
     }
   ]

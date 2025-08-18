@@ -412,7 +412,7 @@ class ContentRecommendationEngine:
             description="Master the implementation of real-time streaming analytics for media platforms with comprehensive data modeling, streaming pipelines, and ML-based recommendations."
             steps={tutorialSteps}
             type="implementation"
-            icon={Video}
+            icon="video"
           />
         </div>
 

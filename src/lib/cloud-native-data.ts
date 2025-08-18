@@ -28,28 +28,28 @@ export const cloudNativeArchitectures: CloudNativeArchitecture[] = [
     flowSteps: [
       {
         id: "event-trigger",
-        name: "Event Trigger",
+        title: "Event Trigger",
         description: "Function triggered by events (HTTP, S3, SQS)",
         technologies: ["API Gateway", "Event Sources", "Triggers"],
         order: 1
       },
       {
         id: "function-execution",
-        name: "Function Execution",
+        title: "Function Execution",
         description: "Code executes in managed runtime",
         technologies: ["Lambda Runtime", "Container", "Custom Runtime"],
         order: 2
       },
       {
         id: "auto-scaling",
-        name: "Auto-scaling",
+        title: "Auto-scaling",
         description: "Platform automatically scales based on load",
         technologies: ["Auto-scaling", "Concurrency Limits", "Provisioned Concurrency"],
         order: 3
       },
       {
         id: "result-return",
-        name: "Result Return",
+        title: "Result Return",
         description: "Function returns result or triggers other services",
         technologies: ["Response", "Event Sourcing", "Integration"],
         order: 4
@@ -62,7 +62,7 @@ export const cloudNativeArchitectures: CloudNativeArchitecture[] = [
       "Real-time file processing",
       "IoT data processing"
     ],
-    complexity: "Low to Medium",
+    complexity: "Medium",
     performance: {
       latency: "Low (milliseconds, cold start excluded)",
       throughput: "High (scales automatically)",
@@ -125,28 +125,28 @@ export const cloudNativeArchitectures: CloudNativeArchitecture[] = [
     flowSteps: [
       {
         id: "container-build",
-        name: "Container Build",
+        title: "Container Build",
         description: "Build and package application in containers",
         technologies: ["Docker", "BuildKit", "Multi-stage Builds"],
         order: 1
       },
       {
         id: "deployment",
-        name: "Deployment",
+        title: "Deployment",
         description: "Deploy containers using Kubernetes manifests",
         technologies: ["kubectl", "Helm Charts", "GitOps"],
         order: 2
       },
       {
         id: "orchestration",
-        name: "Orchestration",
+        title: "Orchestration",
         description: "Kubernetes manages scheduling and scaling",
         technologies: ["Scheduler", "Auto-scaling", "Load Balancing"],
         order: 3
       },
       {
         id: "monitoring",
-        name: "Monitoring & Management",
+        title: "Monitoring & Management",
         description: "Monitor health and manage lifecycle",
         technologies: ["Prometheus", "Grafana", "Kubernetes Dashboard"],
         order: 4
@@ -222,28 +222,28 @@ export const cloudNativeArchitectures: CloudNativeArchitecture[] = [
     flowSteps: [
       {
         id: "abstraction-layer",
-        name: "Abstraction Layer",
+        title: "Abstraction Layer",
         description: "Create cloud-agnostic interfaces",
         technologies: ["Terraform", "Crossplane", "Cloud Provider APIs"],
         order: 1
       },
       {
         id: "deployment",
-        name: "Multi-Cloud Deployment",
+        title: "Multi-Cloud Deployment",
         description: "Deploy across multiple providers",
         technologies: ["Kubernetes", "ArgoCD", "GitOps"],
         order: 2
       },
       {
         id: "traffic-routing",
-        name: "Traffic Routing",
+        title: "Traffic Routing",
         description: "Route traffic based on performance and cost",
         technologies: ["Global Load Balancer", "DNS", "CDN"],
         order: 3
       },
       {
         id: "monitoring",
-        name: "Unified Monitoring",
+        title: "Unified Monitoring",
         description: "Monitor across all cloud providers",
         technologies: ["Prometheus", "Grafana", "Jaeger"],
         order: 4
@@ -256,7 +256,7 @@ export const cloudNativeArchitectures: CloudNativeArchitecture[] = [
       "Geographic distribution",
       "Risk mitigation"
     ],
-    complexity: "Very High",
+    complexity: "High",
     performance: {
       latency: "Low (optimized routing)",
       throughput: "Very High (distributed load)",

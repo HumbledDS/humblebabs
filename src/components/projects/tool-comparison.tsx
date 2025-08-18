@@ -108,7 +108,7 @@ export function ToolComparison({ title, description, tools, features }: ToolComp
             <span className="text-sm font-medium text-foreground">Sort by:</span>
             <select
               value={sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
+              onChange={(e) => setSortBy(e.target.value as 'rating' | 'marketShare' | 'learningCurve')}
               className="px-3 py-1 border border-border rounded-md text-sm bg-background"
             >
               <option value="rating">Rating</option>

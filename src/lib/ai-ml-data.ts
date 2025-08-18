@@ -28,28 +28,28 @@ export const aiMLArchitectures: AIMLArchitecture[] = [
     flowSteps: [
       {
         id: "data-ingestion",
-        name: "Data Ingestion",
+        title: "Data Ingestion",
         description: "Collect and validate training data",
         technologies: ["Data Pipelines", "Data Validation", "Feature Engineering"],
         order: 1
       },
       {
         id: "experiment-tracking",
-        name: "Experiment Tracking",
+        title: "Experiment Tracking",
         description: "Track model experiments and hyperparameters",
         technologies: ["MLflow", "Weights & Biases", "DVC"],
         order: 2
       },
       {
         id: "model-training",
-        name: "Model Training",
+        title: "Model Training",
         description: "Train models with versioned data and code",
         technologies: ["Distributed Training", "Hyperparameter Tuning", "Model Registry"],
         order: 3
       },
       {
         id: "deployment",
-        name: "Model Deployment",
+        title: "Model Deployment",
         description: "Deploy models to production with monitoring",
         technologies: ["Seldon Core", "Kubernetes", "Model Serving"],
         order: 4
@@ -125,28 +125,28 @@ export const aiMLArchitectures: AIMLArchitecture[] = [
     flowSteps: [
       {
         id: "request-reception",
-        name: "Request Reception",
+        title: "Request Reception",
         description: "Receive inference requests via API",
         technologies: ["REST API", "gRPC", "GraphQL", "Load Balancer"],
         order: 1
       },
       {
         id: "preprocessing",
-        name: "Data Preprocessing",
+        title: "Data Preprocessing",
         description: "Transform input data for model consumption",
         technologies: ["Data Validation", "Feature Engineering", "Normalization"],
         order: 2
       },
       {
         id: "inference",
-        name: "Model Inference",
+        title: "Model Inference",
         description: "Execute model prediction",
         technologies: ["Model Runtime", "GPU/CPU Optimization", "Batch Processing"],
         order: 3
       },
       {
         id: "postprocessing",
-        name: "Post-processing",
+        title: "Post-processing",
         description: "Transform model output and return response",
         technologies: ["Output Formatting", "Confidence Scoring", "Response Caching"],
         order: 4
@@ -159,7 +159,7 @@ export const aiMLArchitectures: AIMLArchitecture[] = [
       "Natural language processing",
       "Fraud detection"
     ],
-    complexity: "Medium to High",
+    complexity: "High",
     performance: {
       latency: "Very Low (milliseconds)",
       throughput: "Very High (thousands of requests/sec)",
@@ -222,28 +222,28 @@ export const aiMLArchitectures: AIMLArchitecture[] = [
     flowSteps: [
       {
         id: "feature-computation",
-        name: "Feature Computation",
+        title: "Feature Computation",
         description: "Compute features from raw data sources",
         technologies: ["ETL Pipelines", "Feature Engineering", "Data Processing"],
         order: 1
       },
       {
         id: "feature-storage",
-        name: "Feature Storage",
+        title: "Feature Storage",
         description: "Store features in optimized storage systems",
         technologies: ["Online Store", "Offline Store", "Feature Registry"],
         order: 2
       },
       {
         id: "feature-serving",
-        name: "Feature Serving",
+        title: "Feature Serving",
         description: "Serve features for training and inference",
         technologies: ["Feature API", "Batch Serving", "Real-time Serving"],
         order: 3
       },
       {
         id: "feature-monitoring",
-        name: "Feature Monitoring",
+        title: "Feature Monitoring",
         description: "Monitor feature quality and drift",
         technologies: ["Data Quality", "Feature Drift", "Monitoring Dashboards"],
         order: 4
