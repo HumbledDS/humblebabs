@@ -11,6 +11,11 @@ interface Course {
 
 const courses: Course[] = [
   {
+    slug: "cours-complet",
+    title: "Cours Complet Data Engineering",
+    level: 0
+  },
+  {
     slug: "fondamentaux-data-engineering",
     title: "Fondamentaux Data Engineering",
     level: 1

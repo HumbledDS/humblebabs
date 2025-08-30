@@ -7,6 +7,9 @@ import { Breadcrumb } from "../../components/ui/Breadcrumb"
 import { CourseCard } from "../../components/masterclass/CourseCard"
 import { CourseSearchFilters } from "../../components/masterclass/CourseSearchFilters"
 import { masterclassCourses, categories, levels } from "../../lib/courseData"
+import { Card, CardContent } from "../../components/ui/card"
+import { Badge } from "../../components/ui/badge"
+import { Button } from "../../components/ui/button"
 
 export default function MasterClassPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
@@ -77,6 +80,81 @@ export default function MasterClassPage() {
           categories={categories}
           levels={levels}
         />
+
+        {/* Cours Complet - Section Spéciale */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-16"
+        >
+          <Card className="border-2 border-primary/20 shadow-xl bg-gradient-to-r from-primary/5 to-primary/10 dark:from-primary/10 dark:to-primary/20">
+            <CardContent className="p-8">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
+                      <BookOpen className="w-6 h-6 text-primary" />
+                    </div>
+                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
+                      Recommandé
+                    </Badge>
+                  </div>
+                  <h2 className="text-3xl font-bold text-foreground mb-4">
+                    Cours Complet Data Engineering
+                  </h2>
+                  <p className="text-muted-foreground mb-6 text-lg">
+                    Maîtrisez tous les aspects du Data Engineering en une seule page complète. 
+                    De l'ingestion à la production, en passant par la transformation et l'orchestration des données.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Clock className="w-4 h-4" />
+                      <span>16-20 heures</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Users className="w-4 h-4" />
+                      <span>6 chapitres</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <GraduationCap className="w-4 h-4" />
+                      <span>Niveau Avancé</span>
+                    </div>
+                  </div>
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    <a href="/MasterClass/cours-complet">
+                      Commencer le Cours Complet
+                    </a>
+                  </Button>
+                </div>
+                <div className="relative">
+                  <div className="bg-gradient-to-br from-primary/20 to-primary/10 rounded-2xl p-6 border border-primary/20">
+                    <h3 className="font-semibold text-foreground mb-4">Contenu du Cours</h3>
+                    <div className="space-y-3">
+                      {[
+                        "🚀 Ingestion des Données",
+                        "💾 Stockage des Données", 
+                        "🔄 Transformation des Données",
+                        "⚙️ Orchestration et Workflows",
+                        "📊 Monitoring et Observabilité",
+                        "🔒 Sécurité et Gouvernance"
+                      ].map((item, index) => (
+                        <div key={index} className="flex items-center gap-3 text-sm">
+                          <div className="w-2 h-2 bg-primary rounded-full" />
+                          <span className="text-muted-foreground">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Courses Grid */}
         <motion.div 
