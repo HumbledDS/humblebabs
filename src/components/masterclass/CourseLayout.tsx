@@ -110,7 +110,7 @@ export function CourseLayout({ children, courseInfo, currentSlug }: CourseLayout
         </motion.div>
 
         {/* Course Navigation */}
-        <CourseNavigation currentSlug={currentSlug} courses={masterclassCourses} />
+        <CourseNavigation currentSlug={currentSlug} />
       </div>
     </div>
   )

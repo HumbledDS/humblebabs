@@ -70,7 +70,7 @@ export function MasterClassLayout({ children, courseInfo, currentSlug }: MasterC
         </div>
 
         {/* Course Navigation */}
-        <CourseNavigation currentSlug={currentSlug} courses={masterclassCourses} />
+        <CourseNavigation currentSlug={currentSlug} />
       </div>
     </div>
   )
