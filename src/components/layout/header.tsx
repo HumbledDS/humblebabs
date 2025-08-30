@@ -4,14 +4,16 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
-import { Menu, X, Sun, Moon, Monitor, Sparkles, Code2, Database, Brain, Cloud } from "lucide-react"
+import { Menu, X, Sparkles, Code2, Database, Brain, Cloud } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
 
 
 const navigation = [
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
   { name: "System Design", href: "/system-design" },
+  { name: "MasterClass", href: "/MasterClass" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ]
@@ -190,37 +192,7 @@ export function Header() {
             </div>
             {/* Theme toggle */}
             {mounted && (
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="relative rounded-xl p-3 hover:bg-muted/50 transition-all duration-300 group overflow-hidden"
-                aria-label="Toggle theme"
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-primary/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  whileHover={{ scale: 1.1 }}
-                />
-                
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={theme}
-                    initial={{ opacity: 0, rotate: -180, scale: 0.8 }}
-                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                    exit={{ opacity: 0, rotate: 180, scale: 0.8 }}
-                    transition={{ duration: 0.3 }}
-                    className="relative z-10"
-                  >
-                    {theme === "dark" ? (
-                      <Sun className="h-5 w-5 text-yellow-500" />
-                    ) : theme === "light" ? (
-                      <Moon className="h-5 w-5 text-blue-600" />
-                    ) : (
-                      <Monitor className="h-5 w-5 text-purple-600" />
-                    )}
-                  </motion.div>
-                </AnimatePresence>
-              </motion.button>
+              <ThemeToggle />
             )}
           </div>
         </nav>
@@ -252,34 +224,7 @@ export function Header() {
               {/* Top bar: X and theme toggle */}
               <div className="flex items-center justify-end gap-4 p-6">
                 {mounted && (
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    onClick={() => {
-                      setTheme(theme === "dark" ? "light" : "dark")
-                      setMobileMenuOpen(false)
-                    }}
-                    className="rounded-xl p-3 text-foreground hover:bg-muted/50 transition-all duration-300 border border-border/30"
-                    aria-label="Toggle theme"
-                  >
-                    <AnimatePresence mode="wait">
-                      <motion.div
-                        key={theme}
-                        initial={{ opacity: 0, rotate: -180 }}
-                        animate={{ opacity: 1, rotate: 0 }}
-                        exit={{ opacity: 0, rotate: 180 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {theme === "dark" ? (
-                          <Sun className="h-5 w-5 text-yellow-500" />
-                        ) : theme === "light" ? (
-                          <Moon className="h-5 w-5 text-blue-600" />
-                        ) : (
-                          <Monitor className="h-5 w-5 text-purple-600" />
-                        )}
-                      </motion.div>
-                    </AnimatePresence>
-                  </motion.button>
+                  <ThemeToggle />
                 )}
                 <motion.button
                   whileHover={{ scale: 1.1 }}
