@@ -1,3 +1,11 @@
+
+---
+
+## 📁 Project Structure
+
+```
+
+
 │   ├── terraform/
 │   │   ├── main.tf                             # Main infrastructure definition
 │   │   ├── variables.tf                        # Infrastructure variables
