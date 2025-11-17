@@ -10,8 +10,10 @@ import { masterclassCourses, categories, levels } from "../../lib/courseData"
 import { Card, CardContent } from "../../components/ui/card"
 import { Badge } from "../../components/ui/badge"
 import { Button } from "../../components/ui/button"
+import { useI18n } from "@/components/i18n-provider"
 
 export default function MasterClassPage() {
+  const { t } = useI18n()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [selectedLevel, setSelectedLevel] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
@@ -178,8 +180,8 @@ export default function MasterClassPage() {
           >
             <div className="text-foreground">
               <BookOpen className="w-16 h-16 mx-auto mb-4 opacity-50" />
-              <h3 className="text-xl font-medium mb-2 text-foreground">Aucun cours trouvé</h3>
-              <p className="text-foreground">Essayez de modifier vos filtres ou votre recherche</p>
+              <h3 className="text-xl font-medium mb-2 text-foreground">{t("masterclass.emptyTitle")}</h3>
+              <p className="text-foreground">{t("masterclass.emptySubtitle")}</p>
             </div>
           </motion.div>
         )}

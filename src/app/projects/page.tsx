@@ -6,8 +6,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { ExternalLink, Github, Calendar, Tag, ArrowRight, Filter, Search } from "lucide-react"
 import { projects, categories } from "./data"
+import { useI18n } from "@/components/i18n-provider"
 
 export default function ProjectsPage() {
+  const { t } = useI18n()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -30,10 +32,10 @@ export default function ProjectsPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-[#23235b]">Projects</span>
+            <span className="text-[#23235b]">{t("projects.title")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A collection of projects showcasing my work in AI, data science, and financial markets
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 
@@ -54,7 +56,7 @@ export default function ProjectsPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Search projects..."
+                placeholder={t("projects.searchPlaceholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 hover:border-primary/50"
@@ -79,7 +81,15 @@ export default function ProjectsPage() {
                       : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground hover:shadow-md"
                   }`}
                 >
-                  {category}
+                  {category === "All"
+                    ? t("projects.categories.all")
+                    : category === "AI/ML"
+                      ? t("projects.categories.aiml")
+                      : category === "Data"
+                        ? t("projects.categories.data")
+                        : category === "Cloud"
+                          ? t("projects.categories.cloud")
+                          : category}
                 </motion.button>
               ))}
             </div>
@@ -142,7 +152,7 @@ export default function ProjectsPage() {
                 {project.featured && (
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-600">
-                      Featured
+                      {t("projects.featured")}
                     </span>
                   </div>
                 )}
@@ -157,11 +167,47 @@ export default function ProjectsPage() {
                 </div>
 
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {project.title}
+                  {(() => {
+                    const keyFromDetails = project.detailsUrl && project.detailsUrl.startsWith("/projects/")
+                      ? project.detailsUrl.replace("/projects/", "")
+                      : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
+                      : project.title === "Data Visualization Suite" ? "data-visualization-suite"
+                      : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
+                      : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
+                      : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
+                      : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
+                      : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
+                      : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
+                      : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
+                      : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
+                      : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
+                      : ""
+                    const titleKey = keyFromDetails ? `projects.items.${keyFromDetails}.title` : ""
+                    const translated = titleKey ? t(titleKey) : ""
+                    return translated && translated !== titleKey ? translated : project.title
+                  })()}
                 </h3>
                 
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {project.description}
+                  {(() => {
+                    const keyFromDetails = project.detailsUrl && project.detailsUrl.startsWith("/projects/")
+                      ? project.detailsUrl.replace("/projects/", "")
+                      : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
+                      : project.title === "Data Visualization Suite" ? "data-visualization-suite"
+                      : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
+                      : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
+                      : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
+                      : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
+                      : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
+                      : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
+                      : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
+                      : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
+                      : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
+                      : ""
+                    const descKey = keyFromDetails ? `projects.items.${keyFromDetails}.description` : ""
+                    const translated = descKey ? t(descKey) : ""
+                    return translated && translated !== descKey ? translated : project.description
+                  })()}
                 </p>
                 
                 <div className="flex flex-wrap gap-2 mb-6">
@@ -189,7 +235,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      Demo
+                      {t("projects.demo")}
                     </Link>
                   )}
                   <Link
@@ -228,12 +274,12 @@ export default function ProjectsPage() {
                       project.title === "LLM RAG Implementation") ? (
                       <>
                         <ExternalLink className="w-4 h-4" />
-                        View Details
+                        {t("projects.viewDetails")}
                       </>
                     ) : (
                       <>
                         <Github className="w-4 h-4" />
-                        Code
+                        {t("projects.code")}
                       </>
                     )}
                   </Link>
@@ -245,7 +291,7 @@ export default function ProjectsPage() {
                       rel="noopener noreferrer"
                     >
                       <Github className="w-4 h-4" />
-                      Code
+                      {t("projects.code")}
                     </Link>
                   )}
                 </div>
@@ -276,8 +322,8 @@ export default function ProjectsPage() {
             >
               <Search className="w-8 h-8 text-muted-foreground" />
             </motion.div>
-            <h3 className="text-xl font-semibold mb-2">No projects found</h3>
-            <p className="text-muted-foreground">Try adjusting your search or filter criteria</p>
+            <h3 className="text-xl font-semibold mb-2">{t("projects.emptyTitle")}</h3>
+            <p className="text-muted-foreground">{t("projects.emptySubtitle")}</p>
           </motion.div>
         )}
 
@@ -289,7 +335,7 @@ export default function ProjectsPage() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-muted-foreground mb-4">Have a project in mind?</p>
+          <p className="text-muted-foreground mb-4">{t("projects.ctaQuestion")}</p>
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -298,7 +344,7 @@ export default function ProjectsPage() {
               href="/contact"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium"
             >
-              Let's Work Together
+              {t("projects.ctaButton")}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

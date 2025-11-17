@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import coursCompletData from "@/lib/coursCompletData"
+import { masterclassCourses } from "@/lib/courseData"
 
 interface Chapter {
   id: string
@@ -105,6 +106,86 @@ export default function CoursCompletPage() {
                   <span>{completedChapters.size} chapitres terminés</span>
                   <span>{chapters.length - completedChapters.size} restants</span>
                 </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Parcours intégrés (Niveaux 1 à 6) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <Card className="border-2 border-border shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <BookOpen className="w-5 h-5" />
+                Parcours par Niveaux (1 → 6)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {masterclassCourses
+                  .filter(c =>
+                    [
+                      "fondamentaux-data-engineering",
+                      "modelisation-architecture-avancee",
+                      "scenarios-complexes-solutions-sur-mesure",
+                      "pipelines-transactionnels-temps-reel",
+                      "entretiens-tests-techniques",
+                      "carriere-developpement-professionnel",
+                    ].includes(c.id)
+                  )
+                  .map((course) => (
+                    <Card key={course.id} className="border-2 border-border hover:border-primary/40 transition-colors">
+                      <CardHeader className="pb-3">
+                        <div className="flex items-start justify-between">
+                          <div className="flex flex-wrap gap-2">
+                            {course.featured && (
+                              <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border-2 border-emerald-200 dark:border-emerald-800">
+                                <Star className="w-3 h-3 mr-1" />
+                                Recommandé
+                              </Badge>
+                            )}
+                            <Badge variant="outline" className="border-2 bg-background text-foreground">
+                              {course.category}
+                            </Badge>
+                            <Badge variant="outline" className="border-2 bg-background text-foreground">
+                              {course.level}
+                            </Badge>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <Clock className="w-3 h-3" />
+                            {course.duration}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        <h3 className="text-lg font-semibold text-foreground">{course.title}</h3>
+                        <p className="text-sm text-muted-foreground">{course.excerpt}</p>
+                        <div className="flex flex-wrap gap-2">
+                          {course.tags.slice(0, 4).map((tag) => (
+                            <Badge key={tag} variant="secondary" className="text-xs bg-muted border border-border text-foreground">
+                              {tag}
+                            </Badge>
+                          ))}
+                          {course.tags.length > 4 && (
+                            <Badge variant="secondary" className="text-xs bg-muted border border-border text-foreground">
+                              +{course.tags.length - 4}
+                            </Badge>
+                          )}
+                        </div>
+                        <div className="pt-2">
+                          <a href={`/MasterClass/${course.slug}`} className="inline-flex items-center gap-2 text-primary hover:text-primary/80 text-sm font-medium">
+                            Commencer le cours
+                            <ArrowRight className="w-4 h-4" />
+                          </a>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
               </div>
             </CardContent>
           </Card>

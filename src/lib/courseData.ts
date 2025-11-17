@@ -84,9 +84,116 @@ export const masterclassCourses: Course[] = [
     slug: "carriere-developpement-professionnel",
     fileName: "06-carriere-developpement-professionnel.md"
   }
+  ,
+  {
+    id: "airflow-course",
+    title: "Apache Airflow - Orchestration de Workflows",
+    excerpt: "Créez, planifiez et surveillez des pipelines de données robustes avec Airflow. Meilleures pratiques, DAGs, Operators, et déploiement.",
+    duration: "10-12 heures",
+    level: "Intermédiaire",
+    category: "Orchestration",
+    tags: ["Airflow", "DAG", "Scheduler", "Operators", "Best Practices"],
+    featured: true,
+    slug: "airflow-course",
+    fileName: "airflow-course.md"
+  },
+  {
+    id: "databricks-course",
+    title: "Databricks - Lakehouse et ML à l’échelle",
+    excerpt: "Découvrez Databricks: notebooks, jobs, Delta Lake, MLflow et pipelines de production sur un Lakehouse moderne.",
+    duration: "10-12 heures",
+    level: "Intermédiaire",
+    category: "Cloud",
+    tags: ["Databricks", "Delta Lake", "MLflow", "Jobs", "Workflows"],
+    featured: true,
+    slug: "databricks-course",
+    fileName: "databricks-course.md"
+  },
+  {
+    id: "snowflake-course",
+    title: "Snowflake - Data Warehouse Cloud Moderne",
+    excerpt: "Modélisation, performance, sécurités et données partagées sur Snowflake. Time Travel, Streams/Tasks et optimisation des coûts.",
+    duration: "8-10 heures",
+    level: "Intermédiaire",
+    category: "Cloud",
+    tags: ["Snowflake", "Warehousing", "Time Travel", "Streams", "Tasks"],
+    featured: false,
+    slug: "snowflake-course",
+    fileName: "snowflake-course.md"
+  },
+  {
+    id: "dbt-course",
+    title: "dbt - Transformation orientée SQL",
+    excerpt: "Industrialisez vos transformations SQL avec dbt: modèles, tests, documentation, orchestrations et déploiements.",
+    duration: "8-10 heures",
+    level: "Intermédiaire",
+    category: "Transformations",
+    tags: ["dbt", "SQL", "Models", "Tests", "Docs"],
+    featured: true,
+    slug: "dbt-course",
+    fileName: "dbt-course.md"
+  },
+  {
+    id: "cloud-providers-equivalence",
+    title: "Équivalences Cloud Providers (AWS, Azure, GCP)",
+    excerpt: "Trouvez l’équivalent de chaque service data entre AWS, Azure et GCP pour concevoir des architectures portables.",
+    duration: "6-8 heures",
+    level: "Tous niveaux",
+    category: "Cloud",
+    tags: ["AWS", "Azure", "GCP", "Equivalences", "Services"],
+    featured: false,
+    slug: "cloud-providers-equivalence",
+    fileName: "cloud-providers-equivalence.md"
+  },
+  {
+    id: "data-modelling-course",
+    title: "Modélisation des Données - Fondamentaux",
+    excerpt: "Des modèles conceptuels au physique: normalisation, étoile/flocon, Data Vault, SCD et bonnes pratiques.",
+    duration: "8-10 heures",
+    level: "Débutant",
+    category: "Data Modeling",
+    tags: ["Dimensional", "Data Vault", "SCD", "Normalization", "ERD"],
+    featured: false,
+    slug: "data-modelling-course",
+    fileName: "data-modelling-course.md"
+  },
+  {
+    id: "spark-course",
+    title: "Apache Spark - Traitement Distribué",
+    excerpt: "Transformations, actions, Spark SQL, performance et optimisation. Exécutez des workloads à l’échelle.",
+    duration: "10-12 heures",
+    level: "Intermédiaire",
+    category: "Processing",
+    tags: ["Spark", "RDD", "DataFrame", "Spark SQL", "Optimization"],
+    featured: true,
+    slug: "spark-course",
+    fileName: "spark-course.md"
+  },
+  {
+    id: "streaming-course",
+    title: "Streaming Temps Réel (Kafka, Flink)",
+    excerpt: "Producteurs, consommateurs, topics, partitions, exactly-once et stateful stream processing avec Flink.",
+    duration: "12-14 heures",
+    level: "Avancé",
+    category: "Streaming",
+    tags: ["Kafka", "Flink", "Producers", "Consumers", "Stateful"],
+    featured: true,
+    slug: "streaming-course",
+    fileName: "streaming-course.md"
+  }
 ]
 
-export const categories = ["All", "Data Engineering", "Data Modeling", "Career"]
+export const categories = [
+  "All",
+  "Data Engineering",
+  "Data Modeling",
+  "Career",
+  "Orchestration",
+  "Cloud",
+  "Transformations",
+  "Processing",
+  "Streaming"
+]
 export const levels = ["All", "Débutant", "Intermédiaire", "Avancé", "Expert", "Tous niveaux"]
 
 export function getCourseBySlug(slug: string): Course | undefined {

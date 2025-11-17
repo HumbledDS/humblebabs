@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "../components/theme-provider";
 import { Header } from "../components/layout/header";
 import { Footer } from "../components/layout/footer";
+import { I18nProvider } from "../components/i18n-provider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -50,12 +50,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased bg-background text-foreground`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <I18nProvider>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-1 pt-20">
@@ -63,7 +58,7 @@ export default function RootLayout({
             </main>
             <Footer />
           </div>
-        </ThemeProvider>
+        </I18nProvider>
       </body>
     </html>
   );

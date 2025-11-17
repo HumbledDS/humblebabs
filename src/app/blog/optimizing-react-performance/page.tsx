@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useI18n } from "@/components/i18n-provider"
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Zap, Code, TrendingUp, Cpu, Smartphone } from "lucide-react"
 
 export default function BlogPost() {
+  const { t, lang } = useI18n()
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-4xl mx-auto px-4">
@@ -20,7 +22,7 @@ export default function BlogPost() {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            {t("blog.backToBlog")}
           </Link>
         </motion.div>
 
@@ -33,24 +35,24 @@ export default function BlogPost() {
         >
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              Web Development
+              {t("blog.categories.webDev")}
             </span>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              January 5, 2024
+              {new Date("2024-01-05").toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", { dateStyle: "long" })}
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="w-4 h-4" />
-              10 min read
+              {`10 ${t("blog.readTimeSuffix")}`}
             </div>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Optimizing React Performance: A Deep Dive
+            {t("blog.posts.optimizing-react-performance.title")}
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            Advanced techniques for optimizing React applications, from code splitting to memoization strategies.
+            {t("blog.posts.optimizing-react-performance.excerpt")}
           </p>
 
           <div className="flex items-center gap-4">

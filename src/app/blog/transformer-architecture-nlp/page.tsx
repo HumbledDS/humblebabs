@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useI18n } from "@/components/i18n-provider"
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Brain, Layers, Zap, Code, TrendingUp } from "lucide-react"
 
 export default function BlogPost() {
+  const { t, lang } = useI18n()
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-4xl mx-auto px-4">
@@ -20,7 +22,7 @@ export default function BlogPost() {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Blog
+            {t("blog.backToBlog")}
           </Link>
         </motion.div>
 
@@ -33,24 +35,24 @@ export default function BlogPost() {
         >
           <div className="flex items-center gap-4 mb-6">
             <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-              Machine Learning
+              {t("blog.categories.machineLearning")}
             </span>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Calendar className="w-4 h-4" />
-              December 15, 2023
+              {new Date("2023-12-15").toLocaleDateString(lang === "fr" ? "fr-FR" : "en-US", { dateStyle: "long" })}
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="w-4 h-4" />
-              20 min read
+              {`20 ${t("blog.readTimeSuffix")}`}
             </div>
           </div>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            Understanding Transformer Architecture in NLP
+            {t("blog.posts.transformer-architecture-nlp.title")}
           </h1>
           
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            Deep dive into the transformer architecture that powers modern natural language processing models.
+            {t("blog.posts.transformer-architecture-nlp.excerpt")}
           </p>
 
           <div className="flex items-center gap-4">

@@ -5,36 +5,33 @@ import Image from "next/image"
 import { ArrowRight, Code, Database, Cloud, Brain, Sparkles, Download, ExternalLink, Github, Play } from "lucide-react"
 import { motion } from "framer-motion"
 import { getFeaturedProjects } from "./projects/data"
+import { useI18n } from "@/components/i18n-provider"
 
 const skills = [
   {
     icon: Brain,
-    title: "AI & Machine Learning",
-    description: "Building intelligent systems with TensorFlow, PyTorch, and Scikit-learn. From neural networks to deep learning.",
+    i18nKey: "aiMl",
     technologies: ["TensorFlow", "PyTorch", "Scikit-learn", "Keras", "OpenCV"],
     color: "from-purple-500 to-pink-500",
     bgColor: "bg-purple-500/10",
   },
   {
     icon: Cloud,
-    title: "Cloud Computing",
-    description: "Scalable solutions on AWS, Azure, and GCP. Container orchestration with Docker and Kubernetes.",
+    i18nKey: "cloud",
     technologies: ["AWS", "Azure", "GCP", "Docker", "Kubernetes"],
     color: "from-blue-500 to-cyan-500",
     bgColor: "bg-blue-500/10",
   },
   {
     icon: Database,
-    title: "Data Science",
-    description: "Extracting insights from complex datasets using Python, R, and advanced analytics techniques.",
+    i18nKey: "dataScience",
     technologies: ["Python", "R", "SQL", "Pandas", "NumPy"],
     color: "from-green-500 to-emerald-500",
     bgColor: "bg-green-500/10",
   },
   {
     icon: Code,
-    title: "Financial Markets",
-    description: "Building end-to-end solutions for financial markets using Python, SQL, and Pandas.",
+    i18nKey: "financialMarkets",
     technologies: ["Python", "SQL", "Pandas", "NumPy", "Matplotlib"],
     color: "from-orange-500 to-red-500",
     bgColor: "bg-orange-500/10",
@@ -45,6 +42,7 @@ const skills = [
 const featuredProjects = getFeaturedProjects()
 
 export default function Home() {
+  const { t } = useI18n()
   return (
     <div className="flex flex-col">
       {/* Hero Section with enhanced animations */}
@@ -91,7 +89,7 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <span>Hi, I'm </span>
+              <span>{t("home.hero.hi")} </span>
               <span className="text-[#23235b] relative">
                 Babacar.
                 <span className="absolute -top-2 -right-2 text-2xl animate-pulse">  ✨
@@ -106,14 +104,10 @@ export default function Home() {
               className="space-y-6"
             >
               <p className="text-xl md:text-3xl text-muted-foreground font-medium">
-                Data & AI Engineer, Python Developer
+                {t("home.hero.role")}
               </p>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-                Mostly solo building systems that manages and uses data. 
-                I specialize in <span className="text-primary font-semibold">Data Engineering</span>, and
-                <span className="text-purple-600 font-semibold"> Cloud Computing</span>.
-                I have a personal preference for SaaS and Banking/financial markets projects.
-    
+                {t("home.hero.description")}
               </p>
             </motion.div>
           </motion.div>
@@ -130,7 +124,7 @@ export default function Home() {
                 className="group inline-flex items-center gap-3 px-8 py-4 bg-[#23235b] text-white rounded-xl hover:bg-[#23235b]/90 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <Play className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                View My Work
+                {t("home.hero.viewWork")}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </motion.div>
@@ -140,7 +134,7 @@ export default function Home() {
                 href="/about"
                 className="inline-flex items-center gap-3 px-8 py-4 border-2 border-border rounded-xl hover:bg-muted/50 hover:border-primary/50 transition-all duration-300"
               >
-                About Me
+                {t("home.hero.aboutMe")}
               </Link>
             </motion.div>
             
@@ -150,7 +144,7 @@ export default function Home() {
                 className="inline-flex items-center gap-3 px-8 py-4 bg-muted/50 rounded-xl hover:bg-muted transition-all duration-300"
               >
                 <Download className="w-5 h-5" />
-                Resume
+                {t("home.hero.resume")}
               </Link>
             </motion.div>
           </motion.div>
@@ -168,17 +162,17 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Technical <span className="text-[#23235b]">Expertise</span>
+              {t("home.skillsTitle").split(" ")[0]} <span className="text-[#23235b]">{t("home.skillsTitle").split(" ").slice(1).join(" ")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Combining cutting-edge technologies with practical experience to solve complex problems
+              {t("home.skillsSubtitle")}
             </p>
           </motion.div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
               <motion.div
-                key={skill.title}
+                key={skill.i18nKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -197,11 +191,11 @@ export default function Home() {
                     >
                       <skill.icon className="w-8 h-8 text-primary" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-foreground">{skill.title}</h3>
+                    <h3 className="text-2xl font-bold text-foreground">{t(`home.skills.${skill.i18nKey}.title`)}</h3>
                   </div>
                   
                   <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                    {skill.description}
+                    {t(`home.skills.${skill.i18nKey}.description`)}
                   </p>
                   
                   <div className="flex flex-wrap gap-2">
@@ -236,10 +230,10 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Featured <span className="text-[#23235b]">Projects</span>
+              {t("home.featuredTitle").split(" ")[0]} <span className="text-[#23235b]">{t("home.featuredTitle").split(" ").slice(1).join(" ")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A showcase of my latest work in AI, Data Science, and Cloud Computing
+              {t("home.featuredSubtitle")}
             </p>
           </motion.div>
 
@@ -276,22 +270,64 @@ export default function Home() {
                   
                   {/* Status badge */}
                   <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      project.status === 'Live' ? 'bg-green-500/20 text-green-600' :
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${ 
+                      (project.status === 'Live' || project.status === 'Live Demo') ? 'bg-green-500/20 text-green-600' :
                       project.status === 'Beta' ? 'bg-yellow-500/20 text-yellow-600' :
                       'bg-blue-500/20 text-blue-600'
                     }`}>
-                      {project.status}
+                      {project.status === 'Live' ? t('home.projectStatus.live')
+                        : project.status === 'Live Demo' ? t('home.projectStatus.liveDemo')
+                        : project.status === 'Beta' ? t('home.projectStatus.beta')
+                        : project.status === 'Open Source' ? t('home.projectStatus.openSource')
+                        : project.status === 'Expert' ? t('home.projectStatus.expert')
+                        : project.status === 'Advanced' ? t('home.projectStatus.advanced')
+                        : project.status}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
+                    {(() => {
+                      const keyFromDetails = (project as any).detailsUrl && (project as any).detailsUrl.startsWith("/projects/")
+                        ? (project as any).detailsUrl.replace("/projects/", "")
+                        : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
+                        : project.title === "Data Visualization Suite" ? "data-visualization-suite"
+                        : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
+                        : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
+                        : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
+                        : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
+                        : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
+                        : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
+                        : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
+                        : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
+                        : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
+                        : ""
+                      const titleKey = keyFromDetails ? `projects.items.${keyFromDetails}.title` : ""
+                      const translated = titleKey ? t(titleKey) : ""
+                      return translated && translated !== titleKey ? translated : project.title
+                    })()}
                   </h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
+                    {(() => {
+                      const keyFromDetails = (project as any).detailsUrl && (project as any).detailsUrl.startsWith("/projects/")
+                        ? (project as any).detailsUrl.replace("/projects/", "")
+                        : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
+                        : project.title === "Data Visualization Suite" ? "data-visualization-suite"
+                        : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
+                        : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
+                        : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
+                        : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
+                        : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
+                        : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
+                        : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
+                        : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
+                        : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
+                        : ""
+                      const descKey = keyFromDetails ? `projects.items.${keyFromDetails}.description` : ""
+                      const translated = descKey ? t(descKey) : ""
+                      return translated && translated !== descKey ? translated : project.description
+                    })()}
                   </p>
                   
                   <div className="flex flex-wrap gap-2 mb-6">
@@ -314,7 +350,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                       >
                         <ExternalLink className="w-4 h-4" />
-                        Demo
+                        {t("home.demo")}
                       </Link>
                     )}
                     <Link
@@ -353,12 +389,12 @@ export default function Home() {
                         project.title === "LLM RAG Implementation") ? (
                         <>
                           <ExternalLink className="w-4 h-4" />
-                          View Details
+                          {t("home.viewDetails")}
                         </>
                       ) : (
                         <>
                           <Github className="w-4 h-4" />
-                          Code
+                          {t("home.code")}
                         </>
                       )}
                     </Link>
@@ -379,7 +415,7 @@ export default function Home() {
               href="/projects"
               className="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-xl hover:bg-primary hover:text-primary-foreground transition-all duration-300 font-medium"
             >
-              View All Projects
+              {t("home.viewAllProjects")}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
@@ -397,10 +433,10 @@ export default function Home() {
             className="space-y-8"
           >
             <h2 className="text-4xl md:text-5xl font-bold">
-              Let's Build Something <span className="text-[#23235b]">Amazing</span>
+              {t("home.ctaTitle").split(" ").slice(0, 3).join(" ")} <span className="text-[#23235b]">{t("home.ctaTitle").split(" ").slice(3).join(" ")}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have a project in mind? Let's discuss how we can bring your data-driven ideas to life.
+              {t("home.ctaSubtitle")}
             </p>
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -411,7 +447,7 @@ export default function Home() {
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#23235b] text-white rounded-xl hover:bg-[#23235b]/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium"
               >
                 <Sparkles className="w-5 h-5" />
-                Get In Touch
+                {t("home.ctaButton")}
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </motion.div>

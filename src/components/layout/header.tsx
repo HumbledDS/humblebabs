@@ -2,20 +2,21 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import { Menu, X, Sparkles, Code2, Database, Brain, Cloud } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { LanguageSwitcher } from "@/components/ui/language-switcher"
+import { useI18n } from "@/components/i18n-provider"
+
 
 
 const navigation = [
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "System Design", href: "/system-design" },
-  { name: "MasterClass", href: "/MasterClass" },
-  { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
+  { key: "about", href: "/about" },
+  { key: "projects", href: "/projects" },
+  { key: "systemDesign", href: "/system-design" },
+  { key: "masterClass", href: "/MasterClass" },
+  { key: "blog", href: "/blog" },
+  { key: "contact", href: "/contact" },
 ]
 
 const skillIcons = [Brain, Cloud, Database, Code2]
@@ -23,13 +24,10 @@ const skillIcons = [Brain, Cloud, Database, Code2]
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const { t } = useI18n()
 
   useEffect(() => {
-    setMounted(true)
-    
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20
       setScrolled(isScrolled)
@@ -165,9 +163,10 @@ export function Header() {
             <div className="flex items-center gap-x-8">
               {navigation.map((item, index) => {
                 const isActive = pathname === item.href
+                const label = t(`nav.${item.key}`)
                 return (
                   <motion.div
-                    key={item.name}
+                    key={item.key}
                     initial={{ opacity: 0, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.07 }}
@@ -181,7 +180,7 @@ export function Header() {
                           : 'text-foreground hover:text-primary'
                       }`}
                     >
-                      <span className="relative z-10">{item.name}</span>
+                      <span className="relative z-10">{label}</span>
                       <span
                         className={`absolute left-0 bottom-1 h-0.5 w-0 bg-primary rounded transition-all duration-300 group-hover:w-full ${isActive ? 'w-full' : ''}`}
                       />
@@ -190,10 +189,7 @@ export function Header() {
                 )
               })}
             </div>
-            {/* Theme toggle */}
-            {mounted && (
-              <ThemeToggle />
-            )}
+            <LanguageSwitcher />
           </div>
         </nav>
       </motion.header>
@@ -221,11 +217,9 @@ export function Header() {
               className="fixed top-0 left-0 right-0 z-[70] bg-background/90 backdrop-blur-md shadow-2xl border-b border-border/50 rounded-b-2xl"
               style={{ height: 'auto', maxHeight: '60vh' }}
             >
-              {/* Top bar: X and theme toggle */}
+              {/* Top bar: language switcher and close button */}
               <div className="flex items-center justify-end gap-4 p-6">
-                {mounted && (
-                  <ThemeToggle />
-                )}
+                <LanguageSwitcher />
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
@@ -242,9 +236,10 @@ export function Header() {
               <div className="flex flex-col items-end px-8 space-y-4 pb-8">
                 {navigation.map((item, index) => {
                   const isActive = pathname === item.href
+                  const label = t(`nav.${item.key}`)
                   return (
                     <motion.div
-                      key={item.name}
+                      key={item.key}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
@@ -269,7 +264,7 @@ export function Header() {
                         />
                         
                         {/* Text content */}
-                        <span className="ml-auto relative z-10">{item.name}</span>
+                        <span className="ml-auto relative z-10">{label}</span>
                         
                         {/* Active indicator - much more prominent */}
                         {isActive && (

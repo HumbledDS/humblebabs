@@ -4,11 +4,11 @@ import { motion } from "framer-motion"
 import { ArrowRight, Database, Cloud, Brain, Code2, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { SystemDesignStats } from "@/components/system-design/system-design-stats"
+import { useI18n } from "@/components/i18n-provider"
 
 const systemDesignCategories = [
   {
-    title: "Data Pipeline Architectures",
-    description: "Comprehensive guides to various data pipeline architectures with explanations, trade-offs, and flow diagrams.",
+    key: "dataPipelines",
     icon: Database,
     href: "/system-design/data-pipelines",
     color: "from-blue-500 to-cyan-500",
@@ -16,8 +16,7 @@ const systemDesignCategories = [
     technologies: ["ETL", "Stream Processing", "Batch Processing", "Real-time Analytics"]
   },
   {
-    title: "Microservices Architecture",
-    description: "Design patterns and best practices for building scalable microservices systems.",
+    key: "microservices",
     icon: Code2,
     href: "/system-design/microservices",
     color: "from-green-500 to-emerald-500",
@@ -25,8 +24,7 @@ const systemDesignCategories = [
     technologies: ["Docker", "Kubernetes", "API Gateway", "Service Mesh"]
   },
   {
-    title: "Cloud-Native Solutions",
-    description: "Architecture patterns for building resilient and scalable cloud applications.",
+    key: "cloudNative",
     icon: Cloud,
     href: "/system-design/cloud-native",
     color: "from-purple-500 to-pink-500",
@@ -34,8 +32,7 @@ const systemDesignCategories = [
     technologies: ["AWS", "Azure", "GCP", "Serverless", "Containers"]
   },
   {
-    title: "AI/ML System Design",
-    description: "Architectural patterns for machine learning systems and AI applications.",
+    key: "aiMl",
     icon: Brain,
     href: "/system-design/ai-ml",
     color: "from-orange-500 to-red-500",
@@ -45,6 +42,7 @@ const systemDesignCategories = [
 ]
 
 export default function SystemDesignPage() {
+  const { t } = useI18n()
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -92,7 +90,7 @@ export default function SystemDesignPage() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <span className="text-[#23235b] relative">
-                System Design
+                {t("systemDesign.heroTitle")}
                 <span className="absolute -top-2 -right-2 text-2xl animate-pulse">✨</span>
               </span>
             </motion.h1>
@@ -103,8 +101,7 @@ export default function SystemDesignPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Comprehensive guides to building scalable, resilient, and efficient systems. 
-              From data pipelines to microservices, explore architectural patterns that power modern applications.
+              {t("systemDesign.heroSubtitle")}
             </motion.p>
 
             <motion.div 
@@ -114,7 +111,7 @@ export default function SystemDesignPage() {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <Sparkles className="w-4 h-4" />
-              <span>Expert-level architectural insights</span>
+              <span>{t("systemDesign.heroBadge")}</span>
               <Sparkles className="w-4 h-4" />
             </motion.div>
           </motion.div>
@@ -132,18 +129,17 @@ export default function SystemDesignPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Explore System Design Categories
+              {t("systemDesign.exploreTitle")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Dive deep into different aspects of system design with practical examples, 
-              trade-offs analysis, and implementation guidance.
+              {t("systemDesign.exploreSubtitle")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {systemDesignCategories.map((category, index) => (
               <motion.div
-                key={category.title}
+                key={category.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -164,10 +160,10 @@ export default function SystemDesignPage() {
                     {/* Content */}
                     <div className="relative z-10 space-y-4">
                       <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                        {category.title}
+                        {t(`systemDesign.categories.${category.key}.title`)}
                       </h3>
                       <p className="text-muted-foreground leading-relaxed">
-                        {category.description}
+                        {t(`systemDesign.categories.${category.key}.description`)}
                       </p>
                       
                       {/* Technologies */}
@@ -184,7 +180,7 @@ export default function SystemDesignPage() {
 
                       {/* Arrow indicator */}
                       <div className="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform duration-300">
-                        <span>Explore</span>
+                        <span>{t("systemDesign.exploreCta")}</span>
                         <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>

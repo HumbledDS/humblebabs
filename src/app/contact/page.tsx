@@ -3,13 +3,14 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Mail, Phone, MapPin, Linkedin, Github, Send, CheckCircle, AlertCircle } from "lucide-react"
+import { useI18n } from "@/components/i18n-provider"
 
 const contactMethods = [
   {
     icon: Mail,
     title: "Email",
     value: "contact@humblebabs.com",
-    href: "mailto:contact@humblebabs.com",
+    href: "mailto:babacar.work2024@gmail.com",
     description: "Send me an email for any inquiries"
   },
   {
@@ -44,6 +45,7 @@ const socialLinks = [
 ]
 
 export default function ContactPage() {
+  const { t } = useI18n()
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -108,10 +110,10 @@ export default function ContactPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Get In <span className="text-[#23235b]">Touch</span>
+            {t("contact.title").split(" ").slice(0, 2).join(" ")} <span className="text-[#23235b]">{t("contact.title").split(" ").slice(2).join(" ")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Have a project in mind? Let's discuss how we can bring your ideas to life
+            {t("contact.subtitle")}
           </p>
         </motion.div>
 
@@ -122,10 +124,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-bold mb-8">Let's Connect</h2>
+            <h2 className="text-2xl font-bold mb-8">{t("contact.connectTitle")}</h2>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              I'm always interested in new opportunities and exciting projects. Whether you have a 
-              question about my work, want to collaborate, or just want to say hello, feel free to reach out.
+              {t("contact.connectIntro")}
             </p>
 
             {/* Contact Methods */}
@@ -157,7 +158,7 @@ export default function ContactPage() {
 
             {/* Social Links */}
             <div>
-              <h3 className="font-semibold text-foreground mb-4">Follow Me</h3>
+              <h3 className="font-semibold text-foreground mb-4">{t("contact.followMe")}</h3>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -185,10 +186,10 @@ export default function ContactPage() {
             >
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-semibold text-green-600">Available for opportunities</span>
+                <span className="font-semibold text-green-600">{t("contact.availability")}</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                I'm currently accepting new projects and collaborations. Let's discuss how we can work together!
+                {t("contact.availabilityDesc")}
               </p>
             </motion.div>
           </motion.div>
@@ -200,7 +201,7 @@ export default function ContactPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <div className="bg-card rounded-2xl border border-border p-8">
-              <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+              <h2 className="text-2xl font-bold mb-6">{t("contact.sendMessage")}</h2>
               
               {/* Error Message */}
               {error && (
@@ -223,9 +224,9 @@ export default function ContactPage() {
                   className="text-center py-8"
                 >
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-foreground mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-bold text-foreground mb-2">{t("contact.sentTitle")}</h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out. I'll get back to you as soon as possible.
+                    {t("contact.sentDesc")}
                   </p>
                 </motion.div>
               ) : (
@@ -233,7 +234,7 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                        Name *
+                        {t("contact.form.name")}
                       </label>
                       <input
                         type="text"
@@ -243,12 +244,12 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                        placeholder="Your name"
+                        placeholder={t("contact.form.namePlaceholder")}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                        Email *
+                        {t("contact.form.email")}
                       </label>
                       <input
                         type="email"
@@ -258,14 +259,14 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                        placeholder="your.email@example.com"
+                        placeholder={t("contact.form.emailPlaceholder")}
                       />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                      Subject *
+                      {t("contact.form.subject")}
                     </label>
                     <select
                       id="subject"
@@ -275,19 +276,19 @@ export default function ContactPage() {
                       required
                       className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
                     >
-                      <option value="">Select a subject</option>
-                      <option value="Project Inquiry">Project Inquiry</option>
-                      <option value="Collaboration">Collaboration</option>
-                      <option value="Job Opportunity">Job Opportunity</option>
-                      <option value="Consultation">Consultation</option>
-                      <option value="General Question">General Question</option>
-                      <option value="Other">Other</option>
+                      <option value="">{t("contact.form.subjectSelect")}</option>
+                      <option value="Project Inquiry">{t("contact.form.subjectOptions.project")}</option>
+                      <option value="Collaboration">{t("contact.form.subjectOptions.collaboration")}</option>
+                      <option value="Job Opportunity">{t("contact.form.subjectOptions.job")}</option>
+                      <option value="Consultation">{t("contact.form.subjectOptions.consultation")}</option>
+                      <option value="General Question">{t("contact.form.subjectOptions.general")}</option>
+                      <option value="Other">{t("contact.form.subjectOptions.other")}</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                      Message *
+                      {t("contact.form.message")}
                     </label>
                     <textarea
                       id="message"
@@ -297,7 +298,7 @@ export default function ContactPage() {
                       required
                       rows={6}
                       className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
-                      placeholder="Tell me about your project or inquiry..."
+                      placeholder={t("contact.form.messagePlaceholder")}
                     />
                   </div>
 
@@ -311,12 +312,12 @@ export default function ContactPage() {
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-primary-foreground/30 border-t-primary-foreground rounded-full animate-spin" />
-                        Sending...
+                        {t("contact.form.sending")}
                       </>
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
-                        Send Message
+                        {t("contact.form.send")}
                       </>
                     )}
                   </motion.button>
@@ -335,8 +336,8 @@ export default function ContactPage() {
           className="mt-20"
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-muted-foreground">Quick answers to common questions</p>
+            <h2 className="text-3xl font-bold mb-4">{t("contact.faqTitle")}</h2>
+            <p className="text-muted-foreground">{t("contact.faqSubtitle")}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

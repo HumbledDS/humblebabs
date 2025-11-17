@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Search, Filter } from "lucide-react"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
+import { useI18n } from "@/components/i18n-provider"
 
 interface CourseSearchFiltersProps {
   searchTerm: string
@@ -26,6 +27,7 @@ export function CourseSearchFilters({
   categories,
   levels
 }: CourseSearchFiltersProps) {
+  const { t } = useI18n()
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -43,7 +45,7 @@ export function CourseSearchFilters({
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
           <Input
             type="text"
-            placeholder="Rechercher un cours..."
+            placeholder={t("masterclass.searchPlaceholder")}
             value={searchTerm}
             onChange={(e) => onSearchChange(e.target.value)}
             className="w-full pl-10 pr-4 py-3 bg-background border-2 border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 hover:border-primary/50 shadow-sm"

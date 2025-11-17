@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Clock, Users, BookOpen, ArrowRight, Star } from "lucide-react"
 import { Badge } from "../ui/badge"
 import { Card, CardContent, CardFooter, CardHeader } from "../ui/card"
+import { useI18n } from "@/components/i18n-provider"
 
 interface CourseCardProps {
   course: {
@@ -21,6 +22,7 @@ interface CourseCardProps {
 }
 
 export function CourseCard({ course, index }: CourseCardProps) {
+  const { t } = useI18n()
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -36,7 +38,7 @@ export function CourseCard({ course, index }: CourseCardProps) {
               {course.featured && (
                 <Badge variant="secondary" className="bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                   <Star className="w-3 h-3 mr-1" />
-                  Recommandé
+                  {t("masterclass.featuredBadge")}
                 </Badge>
               )}
               <div className="flex items-center gap-2 text-xs text-foreground bg-muted/50 px-2 py-1 rounded-md">
@@ -80,7 +82,7 @@ export function CourseCard({ course, index }: CourseCardProps) {
           <CardFooter className="pt-0">
             <div className="flex items-center justify-between w-full p-3 bg-muted/30 rounded-lg border border-border">
               <span className="text-sm text-foreground font-medium">
-                Commencer le cours
+                {t("masterclass.startCourse")}
               </span>
               <ArrowRight className="w-4 h-4 text-foreground group-hover:translate-x-1 transition-transform" />
             </div>

@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { Calendar, Clock, Tag, ArrowRight, Search, Filter } from "lucide-react"
+import { useI18n } from "@/components/i18n-provider"
 
 const blogPosts = [
   {
@@ -96,6 +97,7 @@ const blogPosts = [
 const categories = ["All", "Machine Learning", "AI", "Web Development", "Data Science", "Cloud Computing"]
 
 export default function BlogPage() {
+  const { t } = useI18n()
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -121,10 +123,10 @@ export default function BlogPage() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-[#23235b]">Blog</span>
+            <span className="text-[#23235b]">{t("blog.title")}</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Insights, tutorials, and thoughts on AI, data science, and technology
+            {t("blog.subtitle")}
           </p>
         </motion.div>
 
@@ -141,7 +143,7 @@ export default function BlogPage() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <input
                 type="text"
-                placeholder="Search articles..."
+                placeholder={t("blog.searchPlaceholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
@@ -160,7 +162,19 @@ export default function BlogPage() {
                       : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                 >
-                  {category}
+                  {category === "All"
+                    ? t("blog.categories.all")
+                    : category === "Machine Learning"
+                      ? t("blog.categories.machineLearning")
+                      : category === "AI"
+                        ? t("blog.categories.ai")
+                        : category === "Web Development"
+                          ? t("blog.categories.webDev")
+                          : category === "Data Science"
+                            ? t("blog.categories.dataScience")
+                            : category === "Cloud Computing"
+                              ? t("blog.categories.cloudComputing")
+                              : category}
                 </button>
               ))}
             </div>
@@ -175,7 +189,7 @@ export default function BlogPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="mb-16"
           >
-            <h2 className="text-2xl font-bold mb-8">Featured Articles</h2>
+            <h2 className="text-2xl font-bold mb-8">{t("blog.featuredSection")}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {featuredPosts.map((post, index) => (
                 <motion.div
@@ -210,7 +224,7 @@ export default function BlogPage() {
                   {/* Featured Badge */}
                   <div className="absolute top-4 left-4">
                     <span className="px-3 py-1 rounded-full text-xs font-medium bg-purple-500/20 text-purple-600">
-                      Featured
+                      {t("blog.featuredBadge")}
                     </span>
                   </div>
                 </div>
@@ -218,7 +232,17 @@ export default function BlogPage() {
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3">
                       <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                        {post.category}
+                        {post.category === "Machine Learning"
+                          ? t("blog.categories.machineLearning")
+                          : post.category === "AI"
+                            ? t("blog.categories.ai")
+                            : post.category === "Web Development"
+                              ? t("blog.categories.webDev")
+                              : post.category === "Data Science"
+                                ? t("blog.categories.dataScience")
+                                : post.category === "Cloud Computing"
+                                  ? t("blog.categories.cloudComputing")
+                                  : post.category}
                       </span>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="w-4 h-4" />
@@ -231,11 +255,11 @@ export default function BlogPage() {
                     </div>
 
                     <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                      {post.title}
+                      {t(`blog.posts.${post.slug}.title`)}
                     </h3>
                     
                     <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {post.excerpt}
+                      {t(`blog.posts.${post.slug}.excerpt`)}
                     </p>
                     
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -261,7 +285,7 @@ export default function BlogPage() {
                       }
                       className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
                     >
-                      Read More
+                      {t("blog.readMore")}
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -278,7 +302,7 @@ export default function BlogPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <h2 className="text-2xl font-bold mb-8">Latest Articles</h2>
+            <h2 className="text-2xl font-bold mb-8">{t("blog.latestSection")}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {regularPosts.map((post, index) => (
                 <motion.div
@@ -313,7 +337,17 @@ export default function BlogPage() {
                   <div className="p-6">
                     <div className="flex items-center gap-4 mb-3">
                       <span className="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
-                        {post.category}
+                        {post.category === "Machine Learning"
+                          ? t("blog.categories.machineLearning")
+                          : post.category === "AI"
+                            ? t("blog.categories.ai")
+                            : post.category === "Web Development"
+                              ? t("blog.categories.webDev")
+                              : post.category === "Data Science"
+                                ? t("blog.categories.dataScience")
+                                : post.category === "Cloud Computing"
+                                  ? t("blog.categories.cloudComputing")
+                                  : post.category}
                       </span>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Calendar className="w-4 h-4" />
@@ -346,7 +380,7 @@ export default function BlogPage() {
                         }
                         className="inline-flex items-center gap-1 text-primary hover:text-primary/80 transition-colors text-sm font-medium"
                       >
-                        Read
+                        {t("blog.readShort")}
                         <ArrowRight className="w-3 h-3" />
                       </Link>
                     </div>
@@ -367,8 +401,8 @@ export default function BlogPage() {
             <div className="w-16 h-16 bg-muted/50 rounded-full flex items-center justify-center mx-auto mb-4">
               <Search className="w-8 h-8 text-muted-foreground" />
             </div>
-            <h3 className="text-xl font-semibold mb-2">No articles found</h3>
-            <p className="text-muted-foreground">Try adjusting your search or filter criteria</p>
+            <h3 className="text-xl font-semibold mb-2">{t("blog.empty.title")}</h3>
+            <p className="text-muted-foreground">{t("blog.empty.subtitle")}</p>
           </motion.div>
         )}
 
@@ -381,18 +415,18 @@ export default function BlogPage() {
           className="mt-20"
         >
           <div className="bg-gradient-to-r from-primary/5 to-purple-600/5 rounded-2xl border border-border p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Stay Updated</h3>
+            <h3 className="text-2xl font-bold mb-4">{t("blog.newsletter.title")}</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get the latest insights on AI, data science, and technology delivered to your inbox
+              {t("blog.newsletter.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t("blog.newsletter.emailPlaceholder")}
                 className="flex-1 px-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
               />
               <button className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-medium">
-                Subscribe
+                {t("blog.newsletter.subscribe")}
               </button>
             </div>
           </div>

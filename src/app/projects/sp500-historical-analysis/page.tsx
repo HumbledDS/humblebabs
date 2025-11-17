@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useI18n } from "@/components/i18n-provider"
 import { ArrowLeft, ExternalLink, Github, FileText, BarChart3, BookOpen, Settings, AlertTriangle, Layers, FolderOpen, PlayCircle, Info, Zap, TrendingUp, Shield, Users, Globe } from "lucide-react"
 
 // FR: Détails du projet (titre, sous-titre, etc.)
@@ -103,6 +104,7 @@ const methodology = [
 ]
 
 export default function ProjectPage() {
+  const { t } = useI18n()
   return (
     <div className="min-h-screen py-20">
       <div className="max-w-6xl mx-auto px-4">
@@ -118,7 +120,7 @@ export default function ProjectPage() {
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Projects
+            {t("projects.backToProjects")}
           </Link>
         </motion.div>
 
