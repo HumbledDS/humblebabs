@@ -569,10 +569,10 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     const dict = translations[lang]
     return (key: string) => {
       const parts = key.split(".")
-      let current: any = dict
+      let current: TranslationNode = dict
       for (const part of parts) {
-        if (current && typeof current === "object" && part in current) {
-          current = current[part]
+        if (typeof current === "object" && current !== null && part in current) {
+          current = (current as Record<string, TranslationNode>)[part]
         } else {
           return key
         }

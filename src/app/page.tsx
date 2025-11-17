@@ -7,6 +7,49 @@ import { motion } from "framer-motion"
 import { getFeaturedProjects } from "./projects/data"
 import { useI18n } from "@/components/i18n-provider"
 
+type FeaturedProject = {
+  title: string
+  description: string
+  image?: string | null
+  technologies: string[]
+  status: string
+  demoUrl?: string | null
+  githubUrl?: string | null
+  detailsUrl?: string
+}
+
+function getProjectSlug(project: FeaturedProject): string {
+  if (project.detailsUrl && project.detailsUrl.startsWith("/projects/")) {
+    return project.detailsUrl.replace("/projects/", "")
+  }
+  switch (project.title) {
+    case "Cloud ML Pipeline":
+      return "cloud-ml-pipeline"
+    case "Data Visualization Suite":
+      return "data-visualization-suite"
+    case "Computer Vision Analytics":
+      return "computer-vision-analytics"
+    case "Financial Data Analysis Platform":
+      return "financial-data-analysis"
+    case "LLM RAG Implementation":
+      return "llm-rag-implementation"
+    case "Advanced Data Modeling Patterns":
+      return "advanced-data-modeling-patterns"
+    case "Enterprise Data Pipeline Design":
+      return "enterprise-data-pipeline-design"
+    case "Real-time Analytics & ML Pipelines":
+      return "real-time-analytics-ml-pipelines"
+    case "Data Governance & Compliance":
+      return "data-governance-compliance"
+    case "S&P 500 Historical Performance Analysis System":
+      return "sp500-historical-analysis"
+    case "Job Market Analytics Pipeline":
+      return "job-market-analysis"
+    default:
+      return ""
+  }
+}
+
 const skills = [
   {
     icon: Brain,
@@ -39,7 +82,7 @@ const skills = [
 ]
 
 // Get featured projects from centralized data
-const featuredProjects = getFeaturedProjects()
+const featuredProjects = getFeaturedProjects() as unknown as FeaturedProject[]
 
 export default function Home() {
   const { t } = useI18n()
@@ -289,20 +332,7 @@ export default function Home() {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
                     {(() => {
-                      const keyFromDetails = (project as any).detailsUrl && (project as any).detailsUrl.startsWith("/projects/")
-                        ? (project as any).detailsUrl.replace("/projects/", "")
-                        : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
-                        : project.title === "Data Visualization Suite" ? "data-visualization-suite"
-                        : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
-                        : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
-                        : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
-                        : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
-                        : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
-                        : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
-                        : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
-                        : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
-                        : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
-                        : ""
+                      const keyFromDetails = getProjectSlug(project as FeaturedProject)
                       const titleKey = keyFromDetails ? `projects.items.${keyFromDetails}.title` : ""
                       const translated = titleKey ? t(titleKey) : ""
                       return translated && translated !== titleKey ? translated : project.title
@@ -310,20 +340,7 @@ export default function Home() {
                   </h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {(() => {
-                      const keyFromDetails = (project as any).detailsUrl && (project as any).detailsUrl.startsWith("/projects/")
-                        ? (project as any).detailsUrl.replace("/projects/", "")
-                        : project.title === "Cloud ML Pipeline" ? "cloud-ml-pipeline"
-                        : project.title === "Data Visualization Suite" ? "data-visualization-suite"
-                        : project.title === "Computer Vision Analytics" ? "computer-vision-analytics"
-                        : project.title === "Financial Data Analysis Platform" ? "financial-data-analysis"
-                        : project.title === "LLM RAG Implementation" ? "llm-rag-implementation"
-                        : project.title === "Advanced Data Modeling Patterns" ? "advanced-data-modeling-patterns"
-                        : project.title === "Enterprise Data Pipeline Design" ? "enterprise-data-pipeline-design"
-                        : project.title === "Real-time Analytics & ML Pipelines" ? "real-time-analytics-ml-pipelines"
-                        : project.title === "Data Governance & Compliance" ? "data-governance-compliance"
-                        : project.title === "S&P 500 Historical Performance Analysis System" ? "sp500-historical-analysis"
-                        : project.title === "Job Market Analytics Pipeline" ? "job-market-analysis"
-                        : ""
+                      const keyFromDetails = getProjectSlug(project as FeaturedProject)
                       const descKey = keyFromDetails ? `projects.items.${keyFromDetails}.description` : ""
                       const translated = descKey ? t(descKey) : ""
                       return translated && translated !== descKey ? translated : project.description
@@ -343,7 +360,7 @@ export default function Home() {
 
                   <div className="flex items-center gap-3">
                     {project.demoUrl && (
-                      <Link
+                      <a
                         href={project.demoUrl}
                         className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 text-sm font-medium"
                         target="_blank"
@@ -351,7 +368,7 @@ export default function Home() {
                       >
                         <ExternalLink className="w-4 h-4" />
                         {t("home.demo")}
-                      </Link>
+                      </a>
                     )}
                     <Link
                       href={
@@ -361,7 +378,7 @@ export default function Home() {
                         project.title === "Computer Vision Analytics" ? "/projects/computer-vision-analytics" :
                         project.title === "Financial Data Analysis Platform" ? "/projects/financial-data-analysis" :
                         project.title === "LLM RAG Implementation" ? "/projects/llm-rag-implementation" :
-                        project.githubUrl
+                        (project.githubUrl || "/")
                       }
                       className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg hover:bg-muted/50 transition-colors duration-300 text-sm font-medium"
                       target={
